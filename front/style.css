@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    text-align: center;
+    background-image: linear-gradient(to top, #f5f0e1, #ccb9a2, #a6836a, #824f3d, #5c1a1b);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 0;
+    width: 100%;
+    padding: 20px 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.central-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.central-text {
+    margin-top: 50px;
+    font-size: 36px;
+    color: black;
+}
