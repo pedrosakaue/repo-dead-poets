@@ -6,49 +6,156 @@
 }
 
 body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Courier Prime', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(background-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.login-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-body h3 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100vh;
-    text-align: center;
-    background-image: linear-gradient(to top, #f5f0e1, #ccb9a2, #a6836a, #824f3d, #5c1a1b);
+    align-items: flex-start;
 }
 
 header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 0;
     width: 100%;
-    padding: 20px 20px;
+    padding: 20px;
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.logo2 img {
+    width: 150px;
+    height: auto;
 }
 
 .menu {
     display: flex;
-    gap: 15px;
+    justify-content: center;
 }
 
 .menu a {
+    display: flex;
     text-decoration: none;
     color: black;
     font-weight: bold;
+    margin: 0 15px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pad: 20px 40px;
+    border: 2px solid #824f3d;
+    border-radius: 5px;
+    background-color: #f5f0e1;
+    font-family: "Cedarville Cursive", cursive;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    min-width: 130px;
+    height: 60px;
+}
+
+.login-container:hover {
+    background-color: #ccb9a2;
 }
 
 .central-container {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .central-text {
+    font-family: "Cedarville Cursive", cursive;
     margin-top: 50px;
-    font-size: 36px;
+    font-size: 1.9vw;
+    color: #f5f5dc;
+    text-shadow: black;
+}
+
+.central-text i {
+    font-style: italic;
+    color: #f5f5dc;
+}
+
+.central-text2 {
+    font-size: 20px;
+    color: #f5f5dc;
+    align-self: flex-start;
+    width: 60%;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding: 25px;
+    background-color: #f5f0e1; /* Tom de papel envelhecido */
+    border: 2px solid #824f3d; /* Bordas em tom vinho/marrom clássico */
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    font-family: "Cedarville Cursive", cursive; /* Fonte manuscrita elegante */
+}
+
+.login-box h2 {
+    font-size: 22px;
+    color: #5c1a1b; /* Um tom vinho que remete ao passado */
+    margin-bottom: 15px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #824f3d;
+    border-radius: 5px;
+    background-color: #fffbe9; /* Tom suave de papel */
+    font-family: "Courier Prime", monospace;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5c1a1b;
+    color: #f5f0e1;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #824f3d; /* Tom mais envelhecido ao passar o mouse */
+}
+
+.copyright {
+    font-size: 10px;
     color: black;
 }
