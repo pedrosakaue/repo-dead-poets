@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(background-img.jpg);
     background-size: cover;
     background-attachment: fixed;
@@ -60,6 +60,11 @@ header {
     color: black;
     font-weight: bold;
     margin: 0 15px;
+    transition: .3s;
+}
+
+.menu:hover a {
+    text-decoration: underline;
 }
 
 .login-container {
@@ -81,12 +86,13 @@ header {
     background-color: #ccb9a2;
 }
 
-.central-container {
+.inicio-container {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 90vh;
 }
 
 .central-text {
@@ -109,6 +115,31 @@ header {
     width: 60%;
 }
 
+.title-display {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #5c1a1b;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin: 10px 0;
+    padding: 8px 8px;
+}
+
+.filme-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    padding: 25px;
+    background-color: #f5f0e1; 
+    border: 2px solid #824f3d; 
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); 
+    font-family: "Cedarville Cursive", cursive; 
+    min-height: 100vh;
+}
+
 .login-box {
     display: flex;
     flex-direction: column;
@@ -116,16 +147,16 @@ header {
     justify-content: center;
     width: 300px;
     padding: 25px;
-    background-color: #f5f0e1; /* Tom de papel envelhecido */
-    border: 2px solid #824f3d; /* Bordas em tom vinho/marrom clássico */
+    background-color: #f5f0e1;
+    border: 2px solid #824f3d;
     border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    font-family: "Cedarville Cursive", cursive; /* Fonte manuscrita elegante */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    font-family: "Cedarville Cursive", cursive;
 }
 
 .login-box h2 {
     font-size: 22px;
-    color: #5c1a1b; /* Um tom vinho que remete ao passado */
+    color: #5c1a1b;
     margin-bottom: 15px;
 }
 
@@ -135,7 +166,7 @@ header {
     margin: 5px 0;
     border: 1px solid #824f3d;
     border-radius: 5px;
-    background-color: #fffbe9; /* Tom suave de papel */
+    background-color: #fffbe9; 
     font-family: "Courier Prime", monospace;
 }
 
@@ -152,10 +183,26 @@ header {
 }
 
 .login-box button:hover {
-    background-color: #824f3d; /* Tom mais envelhecido ao passar o mouse */
+    background-color: #824f3d; 
+}
+
+.logcad-container {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.logcad-button {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    color: #f5f5dc;
+    text-decoration: none;
 }
 
 .copyright {
     font-size: 10px;
     color: black;
+    margin: 40px;
+    margin-bottom: 0;
 }
