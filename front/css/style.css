@@ -16,7 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(background-img.jpg);
+    background-image: url(../fotos/background-img.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
