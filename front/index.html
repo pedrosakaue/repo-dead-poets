@@ -12,16 +12,22 @@
     <title>Dead Poets Society</title>
 </head>
 
+<script>
+    window.onload = function () {
+        history.replaceState(null, null, window.location.pathname);
+    };
+</script>
+
 <body>
     <header>
-        <div class="logo"> 
+        <div class="logo">
             <a href="index.html">
-            <img src="logo-img.png" alt="">
+                <img src="logo-img.png" alt="">
             </a>
         </div>
         <div>
             <nav class="menu">
-                <a href="#inicio">Início</a>
+                <a href="index.html">Início</a>
                 <a href="#filme">O filme</a>
                 <a href="#personagens">Personagens</a>
                 <a href="#carpediem">Carpe Diem</a>
@@ -32,7 +38,7 @@
             <a href="cadastro.html">Login/Cadastro</a>
         </div>
     </header>
-    <div class="inicio-container">
+    <div class="inicio-container" id="inicio">
         <div class="central-text">
             "Os Poetas Mortos dedicavam-se a <i>sugar o tutano da vida</i>."
         </div>
@@ -40,12 +46,147 @@
             Henry David Thoreau
         </div>
     </div>
-    <div class="title-display">
+    <div class="title-display" id="filme">
         O filme
     </div>
     <div class="filme-container">
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quidem quae enim vitae libero excepturi animi architecto est explicabo ab corrupti suscipit sint, voluptatem nulla perspiciatis doloremque quia accusamus deleniti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta placeat voluptatum ullam iusto eius ad nisi perferendis quis asperiores aliquam? Exercitationem quasi deserunt voluptates totam perspiciatis veritatis corporis asperiores magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio modi eligendi esse porro similique aperiam voluptatem sit fugiat! Eos laboriosam ab et hic facilis soluta delectus debitis explicabo assumenda dolores? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem commodi cum, numquam in laboriosam natus consectetur at nesciunt corrupti deleniti fugit, quam magnam cumque consequuntur hic ullam unde deserunt maiores! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quo praesentium nobis illo veniam obcaecati expedita nostrum explicabo libero impedit. Iste repellat voluptatum rerum autem similique eum totam dolorem? Porro? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod esse soluta quam. Itaque possimus suscipit qui autem dolorem enim accusantium fugiat delectus adipisci? Itaque in, expedita autem ad sint ipsa. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis in mollitia ut non exercitationem, illo possimus? Delectus sit minima quibusdam, ipsa aperiam ad explicabo, voluptatibus eaque reiciendis fuga accusantium debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto corporis voluptates unde amet. Velit placeat, eos sint unde vero nostrum eius! Suscipit nam fugit explicabo obcaecati accusantium laboriosam cupiditate quia!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui quidem quae enim vitae libero excepturi animi
+            architecto est explicabo ab corrupti suscipit sint, voluptatem nulla perspiciatis doloremque quia accusamus
+            deleniti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta placeat voluptatum ullam iusto
+            eius ad nisi perferendis quis asperiores aliquam? Exercitationem quasi deserunt voluptates totam
+            perspiciatis veritatis corporis asperiores magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Optio modi eligendi esse porro similique aperiam voluptatem sit fugiat! Eos laboriosam ab et hic facilis
+            soluta delectus debitis explicabo assumenda dolores? Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit. Rem commodi cum, numquam in laboriosam natus consectetur at nesciunt corrupti deleniti fugit, quam
+            magnam cumque consequuntur hic ullam unde deserunt maiores! Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Accusamus quo praesentium nobis illo veniam obcaecati expedita nostrum explicabo libero
+            impedit. Iste repellat voluptatum rerum autem similique eum totam dolorem? Porro? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Quod esse soluta quam. Itaque possimus suscipit qui autem dolorem enim
+            accusantium fugiat delectus adipisci? Itaque in, expedita autem ad sint ipsa. Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Officiis in mollitia ut non exercitationem, illo possimus? Delectus sit minima
+            quibusdam, ipsa aperiam ad explicabo, voluptatibus eaque reiciendis fuga accusantium debitis. Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Architecto corporis voluptates unde amet. Velit placeat, eos
+            sint unde vero nostrum eius! Suscipit nam fugit explicabo obcaecati accusantium laboriosam cupiditate quia!
+        </div>
+    </div>
+    <div class="personagem-container" id="personagens">
+        <div class="title-display">
+            Personagens
+        </div>
+        <div style="border: 2px solid black; margin-bottom: 80px; box-sizing: border-box;">
+            <img src="group-pic.jpg" alt="">
+        </div>
+        <div class="personagem-display">
+            <div class="personagem-box">
+                <div>
+                    <img src="keating-pic.png" alt="">
+                </div>
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe vel facere quaerat voluptas, itaque
+                    ab? Nostrum sapiente sint itaque impedit aliquid ipsam doloremque eveniet sequi, vel fugit culpa
+                    quis? Modi.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="neil-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="todd-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="meeks-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="charlie-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="knox-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="pitts-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+            <div class="personagem-box">
+                <img src="cameron-pic.png" alt="">
+                <div class="personagem-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, corporis distinctio enim sequi in
+                    quibusdam ullam doloremque similique, aperiam maxime nostrum consectetur impedit perferendis
+                    recusandae
+                    architecto vero est, inventore tempora.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="carpediem-container" id="carpediem">
+        <div class="title-display">
+            Carpe Diem
+        </div>
+        <div class="carpediem-box">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, atque odio. Id beatae nisi, magnam
+            dignissimos inventore ducimus esse sunt suscipit minima odio ratione, tempora debitis necessitatibus quas.
+            Aspernatur, exercitationem? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda accusantium
+            facere, fuga itaque veniam molestias rem deserunt porro, at praesentium laudantium? Architecto voluptatem
+            aut nemo tempora, laudantium animi repudiandae reprehenderit? Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Iste fugit beatae dolor expedita atque et dolore numquam eos. Dolore dolorem eaque
+            laudantium numquam aspernatur est, nisi aut iure dolores ratione. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. In possimus soluta voluptatum autem tempore magni tempora minus recusandae veniam iusto
+            iure vitae enim aspernatur ipsum placeat, eveniet, odio facere sapiente.
+        </div>
+    </div>
+    <div class="minhahist-container" id="minhahist">
+        <div class="title-display">
+            Minha relação com o filme
+        </div>
+        <div class="minhahist-box">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas ducimus soluta expedita amet fugit cum
+            commodi quo dolorem, nemo dolore, qui enim reprehenderit! Doloremque minima cupiditate officiis. Qui,
+            accusamus dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima corrupti possimus
+            asperiores nostrum itaque excepturi debitis sunt? Praesentium ut totam, corporis assumenda culpa blanditiis
+            neque. Voluptatum omnis laudantium officia expedita? Lorem ipsum dolor sit amet consectetur, adipisicing
+            elit. Harum corrupti obcaecati sed hic rerum commodi? Sequi magni nihil dolorem nulla doloribus voluptatum,
+            ab beatae voluptatem dolor placeat id, officiis debitis. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Labore, repudiandae. Dolor illo impedit natus autem eaque distinctio illum eius, accusamus quaerat
+            laudantium ullam, magnam neque totam itaque nisi ab delectus? Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Nesciunt delectus, assumenda a iure minus optio vitae asperiores doloribus laborum, ad,
+            architecto suscipit non necessitatibus? Officia inventore quas adipisci corporis magnam. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Repellat sint rem illum quos laboriosam ad ab odit obcaecati tempora
+            dolorum, dicta voluptas quisquam sit qui harum! Nesciunt amet enim optio!
         </div>
     </div>
     <div class="copyright">
