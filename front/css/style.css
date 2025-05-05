@@ -50,6 +50,10 @@ header {
     height: auto;
 }
 
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
 .logo2 img {
     width: 150px;
     height: auto;
@@ -69,8 +73,9 @@ header {
     transition: .3s;
 }
 
-.menu:hover a {
+.menu a:hover {
     text-decoration: underline;
+    transform: scale(1.1);
 }
 
 .login-container {
