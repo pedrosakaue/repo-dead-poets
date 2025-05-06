@@ -56,13 +56,9 @@ button:hover {
     justify-content: center;
     width: 80%;
     max-width: 600px;
-    height: 60vh; /* Centraliza verticalmente */
+    height: 60vh;
     margin: auto;
     padding: 25px;
-    background-color: #f5f0e1;
-    border: 2px solid #824f3d;
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -106,26 +102,6 @@ header {
 .menu a:hover {
     text-decoration: underline;
     transform: scale(1.1);
-}
-
-#pontuacaoEJogo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-    max-width: 600px;
-    height: 60vh; /* Centraliza verticalmente */
-    margin: auto;
-    padding: 25px;
-    background-color: #f5f0e1;
-    border: 2px solid #824f3d;
-    border-radius: 8px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .flex-colunar {
