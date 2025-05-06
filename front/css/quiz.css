@@ -1,0 +1,179 @@
+/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
+/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+
+:root {
+    --primary-brand-color: #ED145B;
+    --secondary-brand-color: #0762C8;
+    --success: #198754;
+    --success-dark: #095c36;
+    --success-light: #9dd3ba;
+    --warning: #ffc107;
+    --warning-dark: #705400;
+    --warning-light: #fdebb3;
+    --danger: #dc3545;
+    --danger-dark: #990c19;
+    --danger-light: #f0c1c6;
+    --new-gray: #CCCCCC;
+    --new-black: #212427;
+    --new-white: #E8E8E8;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--new-black);
+    font-family: "Courier Prime", monospace;
+    background-image: url(../fotos/background-img.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+button {
+    font-family: monospace;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    background-color: #5c1a1b;
+    color: #f5f0e1;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: #824f3d;
+}
+
+#pontuacaoEJogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+    height: 60vh; /* Centraliza verticalmente */
+    margin: auto;
+    padding: 25px;
+    background-color: #f5f0e1;
+    border: 2px solid #824f3d;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Fixa a header no topo */
+    top: 0;
+    width: 100%;
+    z-index: 100; /* Mantém ela acima de outros elementos */
+    padding: 20px;
+}
+
+.logo img {
+    width: 70px;
+    height: auto;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.logo2 img {
+    width: 150px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu a {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin: 0 15px;
+    transition: .3s;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+#pontuacaoEJogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 600px;
+    height: 60vh; /* Centraliza verticalmente */
+    margin: auto;
+    padding: 25px;
+    background-color: #f5f0e1;
+    border: 2px solid #824f3d;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex-colunar {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f0e1;
+}
+
+.width-fit-content {
+    width: fit-content;
+}
+
+.border-primary {
+    border: 3px solid var(--primary-brand-color);
+}
+
+.border-secondary {
+    border: 3px solid var(--secondary-brand-color);
+}
+
+.padding-8 {
+    padding: 8px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-success-with-bg {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+}
+
+.text-warning-with-bg {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+}
+
+.text-danger-with-bg {
+    color: var(--danger-dark);
+    background-color: var(--danger-light);
+}
+
+.text-new-gray {
+    color: var(--new-gray);
+}
