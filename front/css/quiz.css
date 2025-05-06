@@ -73,10 +73,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed; /* Fixa a header no topo */
+    position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100; /* Mantém ela acima de outros elementos */
+    z-index: 100;
     padding: 20px;
 }
 
@@ -87,11 +87,6 @@ header {
 
 .logo-img:hover {
     transform: scale(1.1);
-}
-
-.logo2 img {
-    width: 150px;
-    height: auto;
 }
 
 .menu {

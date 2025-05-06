@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <title>Teste de Personalidade</title>
+    <link rel="stylesheet" href="css/teste.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="cliente.html">
+                <img src="fotos/logo-img.png" alt="">
+            </a>
+        </div>
+    </header>
+    <div class="quiz-container">
+        <div class="title">Teste de personalidade</div>
+        <div id="question" class="question"></div>
+        <label class="option">
+            <input type="radio" name="option" value="1" />
+            <span class="option1"></span>
+        </label>
+        <label class="option">
+            <input type="radio" name="option" value="2" />
+            <span class="option2"></span>
+        </label>
+        <label class="option">
+            <input type="radio" name="option" value="3" />
+            <span class="option3"></span>
+        </label><label class="option">
+            <input type="radio" name="option" value="4" />
+            <span class="option4"></span>
+        </label><label class="option">
+            <input type="radio" name="option" value="5" />
+            <span class="option5"></span>
+        </label><label class="option">
+            <input type="radio" name="option" value="6" />
+            <span class="option6"></span>
+        </label><label class="option">
+            <input type="radio" name="option" value="7" />
+            <span class="option7"></span>
+        </label><label class="option">
+            <input type="radio" name="option" value="8" />
+            <span class="option8"></span>
+        </label>
+        <!-- Buttons -->
+        <div class="controls">
+            <button class="previous">Voltar</button>
+            <button class="next">Próxima pergunta</button>
+        </div>
+    </div>
+
+    <div class="result">
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    const questions = [
+        {
+            "question": "Como você reage quando encontra uma situação desafiadora ou quando precisa tomar uma decisão difícil?",
+            "answer1": "Busco encontrar uma maneira criativa de lidar com isso, desafiando o status quo.",
+            "answer1Total": "1",
+            "answer2": "Tento agir com coragem, mesmo que me sinta um pouco nervoso ou inseguro.",
+            "answer2Total": "2",
+            "answer3": "Sinto que preciso de um empurrãozinho, mas estou disposto a me arriscar.",
+            "answer3Total": "3",
+            "answer4": "Fico mais confortável com abordagens lógicas e práticas, buscando resolver com a cabeça fria.",
+            "answer4Total": "4",
+            "answer5": "Costumo agir sem pensar muito nas consequências, mas sempre de forma ousada.",
+            "answer5Total": "5",
+            "answer6": "Fico um pouco perdido em situações difíceis, mas tento encontrar apoio nos outros.",
+            "answer6Total": "6",
+            "answer7": "Prefiro seguir as regras e fazer o que é esperado, para evitar complicações.",
+            "answer7Total": "7",
+            "answer8": "Eu fujo do problema ou tento me esconder do que me incomoda.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Quando você pensa em seu futuro, como se sente?",
+            "answer1": "Vejo muitas possibilidades, mas acredito que o caminho será diferente do que todos esperam.",
+            "answer1Total": "1",
+            "answer2": "Sinto uma mistura de empolgação e medo, porque sei que terei que lutar para seguir o que quero.",
+            "answer2Total": "2",
+            "answer3": "Tenho sonhos e estou disposto a lutar por eles, mesmo que não seja fácil.",
+            "answer3Total": "3",
+            "answer4": "Eu me preocupo bastante com o futuro, mas tento não me deixar consumir pelo medo.",
+            "answer4Total": "4",
+            "answer5": "Eu tento aproveitar o presente e viver de maneira intensa, sem me preocupar muito com o futuro.",
+            "answer5Total": "5",
+            "answer6": "Sinto que preciso mais de estabilidade e direção. Isso me deixa mais confortável.",
+            "answer6Total": "6",
+            "answer7": "Tenho muito medo do que o futuro pode me reservar, mas sei que é inevitável.",
+            "answer7Total": "7",
+            "answer8": "Eu fico apavorado com o futuro, preferiria que as coisas se resolvessem por si mesmas.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Como você se comporta em um grupo de amigos?",
+            "answer1": "Tento ser o líder, sempre incentivando os outros a pensarem de maneira diferente e única.",
+            "answer1Total": "1",
+            "answer2": "Sou aquele que dá coragem para os outros se expressarem e tentarem coisas novas.",
+            "answer2Total": "2",
+            "answer3": "Gosto de ser ativo e provocar mudanças dentro do grupo, mesmo que nem todos me acompanhem.",
+            "answer3Total": "3",
+            "answer4": "Sou mais quieto e prefiro observar, mas participo quando tenho algo valioso a acrescentar.",
+            "answer4Total": "4",
+            "answer5": "Sou o mais irreverente, tentando fazer os outros se divertirem e quebrando as regras.",
+            "answer5Total": "5",
+            "answer6": "Tento manter a paz e me encaixar bem, sem causar problemas ou chamar muita atenção.",
+            "answer6Total": "6",
+            "answer7": "Prefiro me manter calmo e equilibrado, ajudando os outros de maneira mais discreta.",
+            "answer7Total": "7",
+            "answer8": "Tento agradar a todos, mas muitas vezes fico com medo de ser rejeitado ou não aceito.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Como você lida com críticas ou desapontamentos?",
+            "answer1": "Eu as uso como combustível para melhorar e desafiar ainda mais as expectativas dos outros.",
+            "answer1Total": "1",
+            "answer2": "Fico bastante afetado, mas tento usar isso como uma oportunidade para crescer.",
+            "answer2Total": "2",
+            "answer3": "Reajo com frustração, mas logo busco maneiras de mudar e me recuperar.",
+            "answer3Total": "3",
+            "answer4": "Prefiro processar internamente e talvez repensar o que posso melhorar.",
+            "answer4Total": "4",
+            "answer5": "Eu tento ignorar e seguir meu caminho, sem me deixar abalar facilmente.",
+            "answer5Total": "5",
+            "answer6": "Me sinto um pouco derrotado, mas tento esconder isso e seguir em frente.",
+            "answer6Total": "6",
+            "answer7": "Fico muito chateado e tento evitar situações onde possa ser criticado.",
+            "answer7Total": "7",
+            "answer8": "Eu me sinto completamente derrotado e muitas vezes recuo para não enfrentar as consequências.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Se você tivesse que escolher uma atividade que refletisse sua personalidade, qual seria?",
+            "answer1": "Algo criativo, onde eu pudesse expressar minhas ideias de maneira única.",
+            "answer1Total": "1",
+            "answer2": "Algo que me desafiasse a ser corajoso e a lutar por algo que eu acreditasse.",
+            "answer2Total": "2",
+            "answer3": "Algo estimulante e que me permitisse me destacar dos outros.",
+            "answer3Total": "3",
+            "answer4": "Algo que me permitisse refletir, aprender e explorar sem pressa.",
+            "answer4Total": "4",
+            "answer5": "Algo radical e imprevisível, para sair da rotina e me sentir vivo.",
+            "answer5Total": "5",
+            "answer6": "Algo tranquilo, onde eu pudesse colaborar sem chamar muita atenção.",
+            "answer6Total": "6",
+            "answer7": "Algo planejado, com regras e estrutura claras, onde eu pudesse ter controle.",
+            "answer7Total": "7",
+            "answer8": "Algo onde eu pudesse me esconder e ficar longe de qualquer tipo de confronto.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Quando você se vê em um momento de pressão, qual é sua reação mais comum?",
+            "answer1": "Enfrento a pressão de frente e tento transformar o estresse em algo produtivo.",
+            "answer1Total": "1",
+            "answer2": "Fico nervoso, mas tento manter a calma e usar isso para me impulsionar.",
+            "answer2Total": "2",
+            "answer3": "Tento encontrar uma maneira criativa de sair da situação e seguir em frente.",
+            "answer3Total": "3",
+            "answer4": "Tento analisar a situação e pensar nas melhores opções antes de reagir.",
+            "answer4Total": "4",
+            "answer5": "Tento manter o controle e não me deixar levar pelo nervosismo.",
+            "answer5Total": "5",
+            "answer6": "Me sinto um pouco sobrecarregado, mas tento pedir ajuda quando necessário.",
+            "answer6Total": "6",
+            "answer7": "Fico tenso e tento evitar mais problemas, mesmo que isso signifique ceder um pouco.",
+            "answer7Total": "7",
+            "answer8": "Fico paralisado, sem saber o que fazer, esperando que a situação se resolva por si mesma.",
+            "answer8Total": "8"
+        },
+        {
+            "question": "Como você lida com a autoridade ou com figuras que tentam controlar sua vida?",
+            "answer1": "Eu tento desafiar a autoridade e pensar de maneira diferente.",
+            "answer1Total": "1",
+            "answer2": "Tento lidar com a autoridade com respeito, mas também expresso minhas opiniões.",
+            "answer2Total": "2",
+            "answer3": "Costumo questionar as regras, mas de maneira mais discreta e com um toque de rebeldia.",
+            "answer3Total": "3",
+            "answer4": "Eu tento manter a paz e evitar conflitos com figuras de autoridade.",
+            "answer4Total": "4",
+            "answer5": "Muitas vezes, gosto de testar os limites e ver até onde posso ir.",
+            "answer5Total": "5",
+            "answer6": "Prefiro evitar confrontos e acatar as regras sem criar grandes problemas.",
+            "answer6Total": "6",
+            "answer7": "Sigo as regras, mesmo que às vezes me sinta frustrado com elas.",
+            "answer7Total": "7",
+            "answer8": "Fico com medo de desafiar a autoridade, pois isso pode resultar em consequências negativas.",
+            "answer8Total": "8"
+        }
+    ]
+</script>
+
+<script>
+    //Set of questions and answers -DONE
+    //Give each answer an identifier -DONE
+    //Each identifier will increment through each question
+    //St the end the identifier with the highest number is the winner 
+    //Display the answer and rest the quiz
+
+    //pass results frm previous question to the next page usig localcache
+
+    //Randomise the background of the quiz for each questiion
+
+    //Possible - Personality Traits
+    // 15 -21- You Need Help
+    // 10 - 15 - Good Soul
+    // 5- 10 - Meh 
+    // 5 - Are You Even Real
+
+
+    let currentQuestion = 0;
+    let score = [];
+    let selectedAnswersData = [];
+    const totalQuestions = questions.length;
+
+    const container = document.querySelector('.quiz-container');
+    const questionEl = document.querySelector('.question');
+    const option1 = document.querySelector('.option1');
+    const option2 = document.querySelector('.option2');
+    const option3 = document.querySelector('.option3');
+    const option4 = document.querySelector('.option4');
+    const option5 = document.querySelector('.option5');
+    const option6 = document.querySelector('.option6');
+    const option7 = document.querySelector('.option7');
+    const option8 = document.querySelector('.option8');
+    const nextButton = document.querySelector('.next');
+    const previousButton = document.querySelector('.previous');
+    const restartButton = document.querySelector('.restart');
+    const result = document.querySelector('.result');
+
+    //Function to generate question 
+    function generateQuestions(index) {
+        //Select each question by passing it a particular index
+        const question = questions[index];
+        const option1Total = questions[index].answer1Total;
+        const option2Total = questions[index].answer2Total;
+        const option3Total = questions[index].answer3Total;
+        const option4Total = questions[index].answer4Total;
+        const option5Total = questions[index].answer5Total;
+        const option6Total = questions[index].answer6Total;
+        const option7Total = questions[index].answer7Total;
+        const option8Total = questions[index].answer8Total;
+        //Populate html elements 
+        questionEl.innerHTML = `${index + 1}. ${question.question}`
+        option1.setAttribute('data-total', `${option1Total}`);
+        option2.setAttribute('data-total', `${option2Total}`);
+        option3.setAttribute('data-total', `${option3Total}`);
+        option4.setAttribute('data-total', `${option4Total}`);
+        option5.setAttribute('data-total', `${option5Total}`);
+        option6.setAttribute('data-total', `${option6Total}`);
+        option7.setAttribute('data-total', `${option7Total}`);
+        option8.setAttribute('data-total', `${option8Total}`);
+        option1.innerHTML = `${question.answer1}`
+        option2.innerHTML = `${question.answer2}`
+        option3.innerHTML = `${question.answer3}`
+        option4.innerHTML = `${question.answer4}`
+        option5.innerHTML = `${question.answer5}`
+        option6.innerHTML = `${question.answer6}`
+        option7.innerHTML = `${question.answer7}`
+        option8.innerHTML = `${question.answer8}`
+    }
+
+
+    function loadNextQuestion() {
+        const selectedOption = document.querySelector('input[type="radio"]:checked');
+        //Check if there is a radio input checked
+        if (!selectedOption) {
+            alert('Escolha uma opção!');
+            return;
+        }
+        //Get value of selected radio
+        const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
+
+        ////Add the answer score to the score array
+        score.push(answerScore);
+
+        selectedAnswersData.push()
+
+
+        const totalScore = score.reduce((total, currentNum) => total + currentNum);
+
+        //Finally we incement the current question number ( to be used as the index for each array)
+        currentQuestion++;
+
+        //once finished clear checked
+        selectedOption.checked = false;
+        //If quiz is on the final question
+        if (currentQuestion == totalQuestions - 1) {
+            nextButton.textContent = 'Finish';
+        }
+        //If the quiz is finished then we hide the questions container and show the results 
+        if (currentQuestion == totalQuestions) {
+            container.style.display = 'none';
+            result.innerHTML =
+                `<h1 class="final-score">Sua pontuação: ${totalScore}</h1>
+         <div class="summary">
+            <h1>Resultado</h1>
+            <p>Veja seu personagem abaixo baseado no seu resultado:</p>
+            <p>45 - 49 - Richard Cameron</p>
+            <p>40 - 44 - Steven Meeks</p>
+            <p>33 - 39 - Knox Overstreet</p>
+            <p>26 - 32- Todd Anderson</p>
+            <p>19 - 25 - Charlie Dalton</p>
+            <p>11 - 18 - Neil Perry </p>
+            <p>7 - 10 - Sr. Keating</p>
+        </div>
+        <button class="restart">Tentar Novamente</button>
+         `;
+            return;
+        }
+        generateQuestions(currentQuestion);
+    }
+
+    //Function to load previous question
+    function loadPreviousQuestion() {
+        //Decrement quentions index
+        currentQuestion--;
+        //remove last array value;
+        score.pop();
+        //Generate the question
+        generateQuestions(currentQuestion);
+    }
+
+    //Fuction to reset and restart the quiz;
+    function restartQuiz(e) {
+        if (e.target.matches('button')) {
+            //reset array index and score
+            currentQuestion = 0;
+            score = [];
+            //Reload quiz to the start
+            location.reload();
+        }
+
+    }
+
+
+    generateQuestions(currentQuestion);
+    nextButton.addEventListener('click', loadNextQuestion);
+    previousButton.addEventListener('click', loadPreviousQuestion);
+    result.addEventListener('click', restartQuiz);
+
+</script>
