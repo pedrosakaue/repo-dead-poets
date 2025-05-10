@@ -155,7 +155,7 @@ header {
     border: 2px solid #824f3d;
     border-radius: 8px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-    min-height: 70vh;
+    min-height: 65vh;
 }
 
 .personagem-container {
