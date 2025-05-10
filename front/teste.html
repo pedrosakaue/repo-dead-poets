@@ -48,7 +48,7 @@
             <input type="radio" name="option" value="8" />
             <span class="option8"></span>
         </label>
-        <!-- Buttons -->
+
         <div class="controls">
             <button class="previous">Voltar</button>
             <button class="next">Próxima pergunta</button>
@@ -286,13 +286,13 @@
             <h1>Resultado</h1>
             <p>Veja seu personagem abaixo baseado no seu resultado:</p>
             <p>49 - 56 - Richard Cameron</p>
-            <p>42 - 48 - Steven Meeks</p>
-            <p>38 - 41 - Gerard Pitts</p>
-            <p>32 - 37 - Knox Overstreet</p>
-            <p>26 - 31- Todd Anderson</p>
-            <p>20 - 25 - Charlie Dalton</p>
-            <p>14 - 19 - Neil Perry </p>
-            <p>7 - 13 - Sr. Keating</p>
+            <p>43 - 48 - Todd Anderson</p>
+            <p>37 - 42 - Gerard Pitts</p>
+            <p>31 - 36 - Steven Meeks</p>
+            <p>25 - 30- Knox Overstreet</p>
+            <p>19 - 24 - Charlie Dalton</p>
+            <p>13 - 18 - Neil Perry </p>
+            <p>7 - 12 - Sr. Keating</p>
         </div>
         <button class="restart">Tentar Novamente</button>
          `;
@@ -322,7 +322,7 @@
 
     }
 
-
+    //Chama as funções de acordo com o clique nos botões
     generateQuestions(questaoAtual);
     nextButton.addEventListener('click', loadNextQuestion);
     previousButton.addEventListener('click', loadPreviousQuestion);
