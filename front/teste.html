@@ -222,7 +222,7 @@
     const resultado = document.querySelector('.resultado');
  
     function generateQuestions(index) {
-        //Select each question by passing it a particular index
+        //Carrega os valores das questões de acordo com o index e respostas selecionadas
         const questao = questoes[index];
         const option1Total = questoes[index].resp1Total;
         const option2Total = questoes[index].resp2Total;
@@ -232,7 +232,7 @@
         const option6Total = questoes[index].resp6Total;
         const option7Total = questoes[index].resp7Total;
         const option8Total = questoes[index].resp8Total;
-        //Populate html elements 
+        //Define Data Attributes para as options 
         questaoEl.innerHTML = `${index + 1}. ${questao.questao}`
         option1.setAttribute('data-total', `${option1Total}`);
         option2.setAttribute('data-total', `${option2Total}`);
@@ -260,10 +260,10 @@
             alert('Escolha uma opção!');
             return;
         }
-        //Get do valor selecionado
+        //Define como número a Data Attribute da optionSelecionada
         const respScore = Number(optionSelecionada.nextElementSibling.getAttribute('data-total'));
 
-        //Push da resposta selecionada para array
+        //Insere na array a resposta selecionada
         pontos.push(respScore);
 
         const totalPontos = pontos.reduce((total, currentNum) => total + currentNum);
@@ -271,7 +271,7 @@
         //Acrescenta o número de questões respondidas.
         questaoAtual++;
 
-        //Limpando o radio para próxima questão
+        //Limpando a option para próxima questão
         optionSelecionada.checked = false;
         //Muda o botão para finalizar o quiz na última pergunta
         if (questaoAtual == totalQuestoes - 1) {
