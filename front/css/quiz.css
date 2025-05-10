@@ -81,7 +81,7 @@ header {
     height: auto;
 }
 
-.logo-img:hover {
+.logo img:hover {
     transform: scale(1.1);
 }
 

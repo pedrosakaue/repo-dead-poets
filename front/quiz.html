@@ -14,7 +14,7 @@
 <body onload="onloadEsconder()">
     <header>
         <div class="logo">
-            <a href="cliente.html">
+            <a href="cliente.html#quiz">
                 <img src="fotos/logo-img.png" alt="">
             </a>
         </div>
@@ -331,15 +331,15 @@
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Precisa melhorar para se tornar um poeta!"
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Quase um poeta, hein!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Um verdadeiro poeta!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 

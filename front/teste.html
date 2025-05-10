@@ -13,14 +13,14 @@
 <body>
     <header>
         <div class="logo">
-            <a href="cliente.html">
+            <a href="cliente.html#teste">
                 <img src="fotos/logo-img.png" alt="">
             </a>
         </div>
     </header>
     <div class="quiz-container">
         <div class="title">Teste de personalidade</div>
-        <div id="question" class="question"></div>
+        <div id="questao" class="questao"></div>
         <label class="option">
             <input type="radio" name="option" value="1" />
             <span class="option1"></span>
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div class="result">
+    <div class="resultado">
 
     </div>
 
@@ -64,9 +64,9 @@
 </html>
 
 <script>
-    const questions = [
+    const questoes = [
         {
-            "question": "Como você reage quando encontra uma situação desafiadora ou quando precisa tomar uma decisão difícil?",
+            "questao": "Como você reage quando encontra uma situação desafiadora ou quando precisa tomar uma decisão difícil?",
             "answer1": "Busco encontrar uma maneira criativa de lidar com isso, desafiando o status quo.",
             "answer1Total": "1",
             "answer2": "Tento agir com coragem, mesmo que me sinta um pouco nervoso ou inseguro.",
@@ -85,7 +85,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Quando você pensa em seu futuro, como se sente?",
+            "questao": "Quando você pensa em seu futuro, como se sente?",
             "answer1": "Vejo muitas possibilidades, mas acredito que o caminho será diferente do que todos esperam.",
             "answer1Total": "1",
             "answer2": "Sinto uma mistura de empolgação e medo, porque sei que terei que lutar para seguir o que quero.",
@@ -104,7 +104,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Como você se comporta em um grupo de amigos?",
+            "questao": "Como você se comporta em um grupo de amigos?",
             "answer1": "Tento ser o líder, sempre incentivando os outros a pensarem de maneira diferente e única.",
             "answer1Total": "1",
             "answer2": "Sou aquele que dá coragem para os outros se expressarem e tentarem coisas novas.",
@@ -123,7 +123,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Como você lida com críticas ou desapontamentos?",
+            "questao": "Como você lida com críticas ou desapontamentos?",
             "answer1": "Eu as uso como combustível para melhorar e desafiar ainda mais as expectativas dos outros.",
             "answer1Total": "1",
             "answer2": "Fico bastante afetado, mas tento usar isso como uma oportunidade para crescer.",
@@ -142,7 +142,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Se você tivesse que escolher uma atividade que refletisse sua personalidade, qual seria?",
+            "questao": "Se você tivesse que escolher uma atividade que refletisse sua personalidade, qual seria?",
             "answer1": "Algo criativo, onde eu pudesse expressar minhas ideias de maneira única.",
             "answer1Total": "1",
             "answer2": "Algo que me desafiasse a ser corajoso e a lutar por algo que eu acreditasse.",
@@ -161,7 +161,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Quando você se vê em um momento de pressão, qual é sua reação mais comum?",
+            "questao": "Quando você se vê em um momento de pressão, qual é sua reação mais comum?",
             "answer1": "Enfrento a pressão de frente e tento transformar o estresse em algo produtivo.",
             "answer1Total": "1",
             "answer2": "Fico nervoso, mas tento manter a calma e usar isso para me impulsionar.",
@@ -180,7 +180,7 @@
             "answer8Total": "8"
         },
         {
-            "question": "Como você lida com a autoridade ou com figuras que tentam controlar sua vida?",
+            "questao": "Como você lida com a autoridade ou com figuras que tentam controlar sua vida?",
             "answer1": "Eu tento desafiar a autoridade e pensar de maneira diferente.",
             "answer1Total": "1",
             "answer2": "Tento lidar com a autoridade com respeito, mas também expresso minhas opiniões.",
@@ -202,25 +202,13 @@
 </script>
 
 <script>
-    //Set of questions and answers -DONE
-    //Give each answer an identifier -DONE
-    //Each identifier will increment through each question
-    //St the end the identifier with the highest number is the winner 
-    //Display the answer and rest the quiz
-
-    //pass results from previous question to the next page usig localcache
-
-    //Randomise the background of the quiz for each question
-
-
-
-    let currentQuestion = 0;
-    let score = [];
+    let questaoAtual = 0;
+    let pontos = [];
     let selectedAnswersData = [];
-    const totalQuestions = questions.length;
+    const totalQuestoes = questoes.length;
 
     const container = document.querySelector('.quiz-container');
-    const questionEl = document.querySelector('.question');
+    const questaoEl = document.querySelector('.questao');
     const option1 = document.querySelector('.option1');
     const option2 = document.querySelector('.option2');
     const option3 = document.querySelector('.option3');
@@ -232,22 +220,21 @@
     const nextButton = document.querySelector('.next');
     const previousButton = document.querySelector('.previous');
     const restartButton = document.querySelector('.restart');
-    const result = document.querySelector('.result');
-
-    //Function to generate question 
+    const resultado = document.querySelector('.resultado');
+ 
     function generateQuestions(index) {
         //Select each question by passing it a particular index
-        const question = questions[index];
-        const option1Total = questions[index].answer1Total;
-        const option2Total = questions[index].answer2Total;
-        const option3Total = questions[index].answer3Total;
-        const option4Total = questions[index].answer4Total;
-        const option5Total = questions[index].answer5Total;
-        const option6Total = questions[index].answer6Total;
-        const option7Total = questions[index].answer7Total;
-        const option8Total = questions[index].answer8Total;
+        const questao = questoes[index];
+        const option1Total = questoes[index].answer1Total;
+        const option2Total = questoes[index].answer2Total;
+        const option3Total = questoes[index].answer3Total;
+        const option4Total = questoes[index].answer4Total;
+        const option5Total = questoes[index].answer5Total;
+        const option6Total = questoes[index].answer6Total;
+        const option7Total = questoes[index].answer7Total;
+        const option8Total = questoes[index].answer8Total;
         //Populate html elements 
-        questionEl.innerHTML = `${index + 1}. ${question.question}`
+        questaoEl.innerHTML = `${index + 1}. ${questao.questao}`
         option1.setAttribute('data-total', `${option1Total}`);
         option2.setAttribute('data-total', `${option2Total}`);
         option3.setAttribute('data-total', `${option3Total}`);
@@ -256,49 +243,49 @@
         option6.setAttribute('data-total', `${option6Total}`);
         option7.setAttribute('data-total', `${option7Total}`);
         option8.setAttribute('data-total', `${option8Total}`);
-        option1.innerHTML = `${question.answer1}`
-        option2.innerHTML = `${question.answer2}`
-        option3.innerHTML = `${question.answer3}`
-        option4.innerHTML = `${question.answer4}`
-        option5.innerHTML = `${question.answer5}`
-        option6.innerHTML = `${question.answer6}`
-        option7.innerHTML = `${question.answer7}`
-        option8.innerHTML = `${question.answer8}`
+        option1.innerHTML = `${questao.answer1}`
+        option2.innerHTML = `${questao.answer2}`
+        option3.innerHTML = `${questao.answer3}`
+        option4.innerHTML = `${questao.answer4}`
+        option5.innerHTML = `${questao.answer5}`
+        option6.innerHTML = `${questao.answer6}`
+        option7.innerHTML = `${questao.answer7}`
+        option8.innerHTML = `${questao.answer8}`
     }
 
 
     function loadNextQuestion() {
-        const selectedOption = document.querySelector('input[type="radio"]:checked');
-        //Check if there is a radio input checked
-        if (!selectedOption) {
+        const optionSelecionada = document.querySelector('input[type="radio"]:checked');
+        //Validação de seleção de opção
+        if (!optionSelecionada) {
             alert('Escolha uma opção!');
             return;
         }
-        //Get value of selected radio
-        const answerScore = Number(selectedOption.nextElementSibling.getAttribute('data-total'));
+        //Get do valor selecionado
+        const answerScore = Number(optionSelecionada.nextElementSibling.getAttribute('data-total'));
 
-        ////Add the answer score to the score array
-        score.push(answerScore);
+        //Push da resposta selecionada para array
+        pontos.push(answerScore);
 
         selectedAnswersData.push()
 
 
-        const totalScore = score.reduce((total, currentNum) => total + currentNum);
+        const totalPontos = pontos.reduce((total, currentNum) => total + currentNum);
 
-        //Finally we incement the current question number ( to be used as the index for each array)
-        currentQuestion++;
+        //Acrescenta o número de questões respondidas.
+        questaoAtual++;
 
-        //once finished clear checked
-        selectedOption.checked = false;
-        //If quiz is on the final question
-        if (currentQuestion == totalQuestions - 1) {
-            nextButton.textContent = 'Finish';
+        //Limpando o radio
+        optionSelecionada.checked = false;
+        //Muda o botão para finalizar o quiz na última pergunta
+        if (questaoAtual == totalQuestoes - 1) {
+            nextButton.textContent = 'Finalizar';
         }
-        //If the quiz is finished then we hide the questions container and show the results 
-        if (currentQuestion == totalQuestions) {
+        //Quando finalizado, aparecer somente o resultado na tela
+        if (questaoAtual == totalQuestoes) {
             container.style.display = 'none';
-            result.innerHTML =
-                `<h1 class="final-score">Sua pontuação: ${totalScore}</h1>
+            resultado.innerHTML =
+                `<h1 class="final-score">Sua pontuação: ${totalPontos}</h1>
          <div class="summary">
             <h1>Resultado</h1>
             <p>Veja seu personagem abaixo baseado no seu resultado:</p>
@@ -315,35 +302,34 @@
          `;
             return;
         }
-        generateQuestions(currentQuestion);
+        generateQuestions(questaoAtual);
     }
 
-    //Function to load previous question
+    //Função para voltar questão
     function loadPreviousQuestion() {
-        //Decrement quentions index
-        currentQuestion--;
-        //remove last array value;
-        score.pop();
-        //Generate the question
-        generateQuestions(currentQuestion);
+        questaoAtual--;
+        //Remove o último elemento da array;
+        pontos.pop();
+        //Gera a questão
+        generateQuestions(questaoAtual);
     }
 
-    //Fuction to reset and restart the quiz;
-    function restartQuiz(e) {
+    //Função para reinicar quiz;
+    function reiniciarQuiz(e) {
         if (e.target.matches('button')) {
-            //reset array index and score
-            currentQuestion = 0;
-            score = [];
-            //Reload quiz to the start
+
+            questaoAtual = 0;
+            pontos = [];
+
             location.reload();
         }
 
     }
 
 
-    generateQuestions(currentQuestion);
+    generateQuestions(questaoAtual);
     nextButton.addEventListener('click', loadNextQuestion);
     previousButton.addEventListener('click', loadPreviousQuestion);
-    result.addEventListener('click', restartQuiz);
+    resultado.addEventListener('click', reiniciarQuiz);
 
 </script>

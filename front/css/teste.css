@@ -11,7 +11,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Courier Prime", monospace;
     font-weight: 100;
     line-height: 1.7rem;
     background-image: url(../fotos/background-img.jpg);
@@ -35,7 +35,7 @@ header {
     height: auto;
 }
 
-.logo-img:hover {
+.logo img:hover {
     transform: scale(1.1);
 }
 
@@ -48,7 +48,10 @@ header {
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(360deg, transparent, #ffffff);
+    align-items: center;
+    background-color: #f5f0e1;
+    border: 2px solid #824f3d;
+    border-radius: 8px;
     min-height: 100vh;
 }
 
@@ -102,7 +105,7 @@ button {
 }
 
 button.previous {
-    background: #c84630;
+    background: #5c1a1b;
 }
 
 button.next {
@@ -128,7 +131,7 @@ button:focus {
     box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 }
 
-.result {
+.resultado {
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -140,18 +143,19 @@ button:focus {
 }
 
 .final-score {
-    color: #00000099;
+    color: #5c1a1b;
 }
 
 .summary {
     font-size: 1rem;
     text-shadow: 1px 1px #ffffff50;
-    color: #00000099;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 5px;
+    color: #000000;
+    background-color: #f5f0e1;
+    border: 2px solid #824f3d;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 0 2rem;
     margin-bottom: 2rem;
 }
