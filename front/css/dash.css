@@ -1,0 +1,93 @@
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f5f5dc;
+    color: #000;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #5c1a1b;
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar img {
+    width: 70px;
+    height: auto;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+    color: #fff;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.indicadores {
+    display: flex;
+    gap: 20px;
+}
+
+.kpi {
+    flex: 1;
+    background: #f5f5dc;
+    border: 0px;
+    border-color: #5c1a1b;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.kpi h3 {
+    font-size: 18px;
+}
+
+.kpi p {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.grafico-container {
+    margin-top: 30px;
+    background: #5c1a1b;
+    padding: 20px;
+    border-radius: 10px;
+    height: 70vh;
+}

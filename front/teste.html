@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="fotos/logo-img.png">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <title>Teste de Personalidade</title>
@@ -221,7 +222,7 @@
     const restartButton = document.querySelector('.restart');
     const resultado = document.querySelector('.resultado');
  
-    function generateQuestions(index) {
+    function gerarQuestoes(index) {
         //Carrega os valores das questões de acordo com o index e respostas selecionadas
         const questao = questoes[index];
         const option1Total = questoes[index].resp1Total;
@@ -253,7 +254,7 @@
     }
 
 
-    function loadNextQuestion() {
+    function proxQuestao() {
         const optionSelecionada = document.querySelector('input[type="radio"]:checked');
         //Validação de seleção de opção
         if (!optionSelecionada) {
@@ -285,29 +286,29 @@
          <div class="summary">
             <h1>Resultado</h1>
             <p>Veja seu personagem abaixo baseado no seu resultado:</p>
-            <p>49 - 56 - Richard Cameron</p>
-            <p>43 - 48 - Todd Anderson</p>
-            <p>37 - 42 - Gerard Pitts</p>
-            <p>31 - 36 - Steven Meeks</p>
-            <p>25 - 30- Knox Overstreet</p>
-            <p>19 - 24 - Charlie Dalton</p>
-            <p>13 - 18 - Neil Perry </p>
-            <p>7 - 12 - Sr. Keating</p>
+            <p>49 - 56 - Richard Cameron <img src="fotos/cameron-pic.png"></p>
+            <p>43 - 48 - Todd Anderson <img src="fotos/todd-pic.png"></p>
+            <p>37 - 42 - Gerard Pitts <img src="fotos/pitts-pic.png"></p>
+            <p>31 - 36 - Steven Meeks <img src="fotos/meeks-pic.png"></p>
+            <p>25 - 30- Knox Overstreet <img src = "fotos/knox-pic.png"></p>
+            <p>19 - 24 - Charlie Dalton <img src="fotos/charlie-pic.png"></p>
+            <p>13 - 18 - Neil Perry <img src="fotos/neil-pic.png"></p>
+            <p>7 - 12 - Sr. Keating <img src="fotos/keating-pic.png"></p>
         </div>
         <button class="restart">Tentar Novamente</button>
          `;
             return;
         }
-        generateQuestions(questaoAtual);
+        gerarQuestoes(questaoAtual);
     }
 
     //Função para voltar questão
-    function loadPreviousQuestion() {
+    function prevQuestao() {
         questaoAtual--;
         //Remove o último elemento da array;
         pontos.pop();
         //Gera a questão
-        generateQuestions(questaoAtual);
+        gerarQuestoes(questaoAtual);
     }
 
     //Função para reinicar quiz;
@@ -323,9 +324,9 @@
     }
 
     //Chama as funções de acordo com o clique nos botões
-    generateQuestions(questaoAtual);
-    nextButton.addEventListener('click', loadNextQuestion);
-    previousButton.addEventListener('click', loadPreviousQuestion);
+    gerarQuestoes(questaoAtual);
+    nextButton.addEventListener('click', proxQuestao);
+    previousButton.addEventListener('click', prevQuestao);
     resultado.addEventListener('click', reiniciarQuiz);
 
 </script>
