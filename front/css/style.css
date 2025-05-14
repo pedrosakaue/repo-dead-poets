@@ -104,6 +104,10 @@ header {
     background-color: #ccb9a2;
 }
 
+.login-container a {
+    text-decoration: none;
+}
+
 .inicio-container {
     flex: 1;
     display: flex;
@@ -292,10 +296,16 @@ header {
     font-weight: bold;
     cursor: pointer;
     transition: background 0.3s ease;
+    margin: 5px;
 }
 
 .login-box button:hover {
     background-color: #824f3d;
+}
+
+.login-box a {
+    text-decoration: none;
+    margin: 5px;
 }
 
 .logcad-container {
@@ -307,9 +317,11 @@ header {
 .logcad-button {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 15px;
     color: #f5f5dc;
     text-decoration: none;
+    
 }
 
 .logcad-button a {
