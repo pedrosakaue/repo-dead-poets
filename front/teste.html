@@ -114,7 +114,7 @@
             "resp3Total": "3",
             "resp4": "Sou mais quieto e prefiro observar, mas participo quando tenho algo valioso a acrescentar.",
             "resp4Total": "4",
-            "resp5": "Sou o mais irreverente, tentando fazer os outros se divertirem e quebrando as regras.",
+            "resp5": "Sou o mais ousado, tentando fazer os outros se divertirem e quebrando as regras.",
             "resp5Total": "5",
             "resp6": "Tento manter a paz e me encaixar bem, sem causar problemas ou chamar muita atenção.",
             "resp6Total": "6",
@@ -221,7 +221,7 @@
     const previousButton = document.querySelector('.previous');
     const restartButton = document.querySelector('.restart');
     const resultado = document.querySelector('.resultado');
- 
+
     function gerarQuestoes(index) {
         //Carrega os valores das questões de acordo com o index e respostas selecionadas
         const questao = questoes[index];
@@ -281,52 +281,170 @@
         //Quando finalizado, aparecer somente o resultado na tela
         if (questaoAtual == totalQuestoes) {
             container.style.display = 'none';
-            resultado.innerHTML =
-                `<h1 class="final-score">Sua pontuação: ${totalPontos}</h1>
-         <div class="summary">
-            <h1>Resultado</h1>
-            <p>Veja seu personagem abaixo baseado no seu resultado:</p>
-            <p>49 - 56 - Richard Cameron <img src="fotos/cameron-pic.png"></p>
-            <p>43 - 48 - Todd Anderson <img src="fotos/todd-pic.png"></p>
-            <p>37 - 42 - Gerard Pitts <img src="fotos/pitts-pic.png"></p>
-            <p>31 - 36 - Steven Meeks <img src="fotos/meeks-pic.png"></p>
-            <p>25 - 30- Knox Overstreet <img src = "fotos/knox-pic.png"></p>
-            <p>19 - 24 - Charlie Dalton <img src="fotos/charlie-pic.png"></p>
-            <p>13 - 18 - Neil Perry <img src="fotos/neil-pic.png"></p>
-            <p>7 - 12 - Sr. Keating <img src="fotos/keating-pic.png"></p>
-        </div>
-        <button class="restart">Tentar Novamente</button>
-         `;
-            return;
+            if (totalPontos >= 7 && totalPontos <= 12) {
+                resultado.innerHTML =
+                    `<div class="summary"> 
+                        <h2> Seu personagem é:</h2> 
+                        <div> 
+                            <img src="fotos/keating-pic.png"> 
+                        </div> 
+                        <div> 
+                            <b>🧑‍🏫 Sr. Keating!</b> 
+                        </div> 
+                        <div> 
+                            Professor de literatura não convencional, inspira seus alunos a pensarem por si  
+                            mesmos e a viverem intensamente. Com seu lema “Carpe Diem”, encoraja a liberdade  
+                            de expressão e o amor pela poesia, sendo a força transformadora na vida dos garotos.     
+                        </div> 
+                    </div> 
+                    <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 13 && totalPontos <= 18) {
+                    resultado.innerHTML =
+                    `<div class="summary"> 
+                        <h2> Seu personagem é:</h2> 
+                        <div> 
+                            <img src="fotos/neil-pic.png"> 
+                        </div> 
+                        <div> 
+                            <b>🎭 Neil Perry</b> 
+                        </div> 
+                        <div> 
+                            Estudante carismático e apaixonado por artes, especialmente teatro. Vive sob intensa  
+                            pressão do pai autoritário, o que o leva a um trágico conflito entre seguir seus sonhos  
+                            e obedecer às expectativas familiares.     
+                        </div> 
+                    </div> 
+                    <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 19 && totalPontos <= 24) {
+                    resultado.innerHTML =
+                        `<div class="summary"> 
+                            <h2> Seu personagem é:</h2> 
+                            <div> 
+                                <img src="fotos/charlie-pic.png"> 
+                            </div> 
+                            <div> 
+                                <b>🎷 Charlie Dalton (Nuwanda)</b> 
+                            </div> 
+                            <div> 
+                                Irreverente e provocador, Charlie adota o nome “Nuwanda” como símbolo de sua rebeldia.  
+                                Sempre desafia a autoridade e leva os ideais de liberdade ao extremo, sendo uma figura  
+                                ousada e cômica ao mesmo tempo.    
+                            </div> 
+                        </div> 
+                        <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 25 && totalPontos <= 30) {
+                    resultado.innerHTML =
+                        `<div class="summary"> 
+                            <h2> Seu personagem é:</h2> 
+                        <div> 
+                            <img src="fotos/knox-pic.png"> 
+                        </div> 
+                        <div> 
+                            <b>💌 Knox Overstreet</b> 
+                        </div> 
+                        <div> 
+                            Romântico incorrigível, Knox se apaixona por uma garota e luta para conquistar seu coração. Sua 
+                            jornada reflete o desejo de viver intensamente, mesmo diante do medo da rejeição e das convenções sociais.    
+                        </div> 
+                    </div> 
+                    <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 31 && totalPontos <= 36) {
+                    resultado.innerHTML =
+                        `<div class="summary"> 
+                            <h2> Seu personagem é:</h2> 
+                            <div> 
+                                <img src="fotos/meeks-pic.png"> 
+                            </div> 
+                            <div> 
+                                <b>🧠 Steven Meeks</b> 
+                            </div> 
+                            <div> 
+                            Inteligente e gentil, Meeks é entusiasta de ciência e poesia. É leal ao grupo e participa ativamente 
+                            das reuniões do Dead Poets Society, sempre buscando equilíbrio entre rebeldia e responsabilidade.    
+                            </div> 
+                        </div> 
+                        <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 37 && totalPontos <= 42) {
+                    resultado.innerHTML =
+                        `<div class="summary"> 
+                            <h2> Seu personagem é:</h2> 
+                            <div> 
+                                <img src="fotos/pitts-pic.png"> 
+                            </div> 
+                            <div> 
+                                <b>📚 Pitts</b> 
+                            </div> 
+                            <div> 
+                            Amigo próximo de Meeks, é reservado e calado, mas participa fielmente das reuniões do grupo. 
+                            Representa os alunos que encontram força na união e na amizade, mesmo sem estar no centro das 
+                            atenções.    
+                            </div> 
+                        </div> 
+                        <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 43 && totalPontos <= 48) {
+                    resultado.innerHTML =
+                    `<div class="summary"> 
+                        <h2> Seu personagem é:</h2> 
+                        <div> 
+                            <img src="fotos/todd-pic.png"> 
+                        </div> 
+                        <div> 
+                            <b>📓 Todd Anderson</b> 
+                        </div> 
+                        <div> 
+                            Tímido e inseguro, vive à sombra do irmão mais velho. Ao longo do filme, se transforma profundamente 
+                            graças ao incentivo de Keating e da amizade com Neil, encontrando sua própria voz e coragem.    
+                        </div> 
+                    </div> 
+                    <button class="restart">Tentar Novamente</button>`
+                } else if (totalPontos >= 49 && totalPontos <= 56) {
+                    resultado.innerHTML =
+                        `<div class="summary">  
+                            <h2> Seu personagem é:</h2> 
+                            <div> 
+                                <img src="fotos/cameron-pic.png"> 
+                            </div> 
+                            <div> 
+                                <b>🎓 Richard Cameron</b> 
+                            </div> 
+                            <div> 
+                                Conservador e obediente, Cameron representa o conformismo e o medo de romper com as regras. No 
+                                momento de crise, entrega o grupo para se proteger, tornando-se símbolo da traição à liberdade 
+                                proposta por Keating.    
+                            </div> 
+                        </div> 
+                        <button class="restart">Tentar Novamente</button>`
+                }
+                return;
+            }
+            gerarQuestoes(questaoAtual);
         }
-        gerarQuestoes(questaoAtual);
-    }
 
-    //Função para voltar questão
-    function prevQuestao() {
-        questaoAtual--;
-        //Remove o último elemento da array;
-        pontos.pop();
-        //Gera a questão
-        gerarQuestoes(questaoAtual);
-    }
-
-    //Função para reinicar quiz;
-    function reiniciarQuiz(x) {
-        if (x.target.matches('button')) {
-
-            questaoAtual = 0;
-            pontos = [];
-
-            location.reload();
+        //Função para voltar questão
+        function prevQuestao() {
+            questaoAtual--;
+            //Remove o último elemento da array;
+            pontos.pop();
+            //Gera a questão
+            gerarQuestoes(questaoAtual);
         }
 
-    }
+        //Função para reinicar quiz;
+        function reiniciarQuiz(x) {
+            if (x.target.matches('button')) {
 
-    //Chama as funções de acordo com o clique nos botões
-    gerarQuestoes(questaoAtual);
-    nextButton.addEventListener('click', proxQuestao);
-    previousButton.addEventListener('click', prevQuestao);
-    resultado.addEventListener('click', reiniciarQuiz);
+                questaoAtual = 0;
+                pontos = [];
+
+                location.reload();
+            }
+
+        }
+
+        //Chama as funções de acordo com o clique nos botões
+        gerarQuestoes(questaoAtual);
+        nextButton.addEventListener('click', proxQuestao);
+        previousButton.addEventListener('click', prevQuestao);
+        resultado.addEventListener('click', reiniciarQuiz);
 
 </script>

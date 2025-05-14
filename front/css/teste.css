@@ -113,8 +113,8 @@ button.next {
 }
 
 button.restart {
-    background: #0cf574;
-    color: #00000050;
+    background: #5c1a1b;
+    color: white;
     font-size: 2rem;
     margin-bottom: 1rem;
     transition: all 0.4s;
@@ -143,7 +143,7 @@ button:focus {
 }
 
 .resultado img {
-    width: 50px;
+    width: 240px;
     height: auto;
 }
 
@@ -152,6 +152,7 @@ button:focus {
 }
 
 .summary {
+    width: 50vw;
     font-size: 1rem;
     text-shadow: 1px 1px #ffffff50;
     color: #000000;
@@ -161,7 +162,7 @@ button:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 2rem;
+    padding: 30px;
     margin-bottom: 2rem;
 }
 
