@@ -1,71 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="fotos/logo-img.png">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <title>Teste de Personalidade</title>
-    <link rel="stylesheet" href="css/teste.css">
-</head>
-
-<body>
-    <header>
-        <div class="logo">
-            <a href="cliente.html#teste">
-                <img src="fotos/logo-img.png" alt="">
-            </a>
-        </div>
-    </header>
-    <div class="quiz-container">
-        <div class="title">Teste de personalidade</div>
-        <div id="questao" class="questao"></div>
-        <label class="option">
-            <input type="radio" name="option" value="1" />
-            <span class="option1"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="2" />
-            <span class="option2"></span>
-        </label>
-        <label class="option">
-            <input type="radio" name="option" value="3" />
-            <span class="option3"></span>
-        </label><label class="option">
-            <input type="radio" name="option" value="4" />
-            <span class="option4"></span>
-        </label><label class="option">
-            <input type="radio" name="option" value="5" />
-            <span class="option5"></span>
-        </label><label class="option">
-            <input type="radio" name="option" value="6" />
-            <span class="option6"></span>
-        </label><label class="option">
-            <input type="radio" name="option" value="7" />
-            <span class="option7"></span>
-        </label><label class="option">
-            <input type="radio" name="option" value="8" />
-            <span class="option8"></span>
-        </label>
-
-        <div class="controls">
-            <button class="previous">Voltar</button>
-            <button class="next">Próxima pergunta</button>
-        </div>
-    </div>
-
-    <div class="resultado">
-
-    </div>
-
-</body>
-
-</html>
-
-<script>
-    const questoes = [
+const questoes = [
         {
             "questao": "Como você reage quando encontra uma situação desafiadora ou quando precisa tomar uma decisão difícil?",
             "resp1": "Busco encontrar uma maneira criativa de lidar com isso, desafiando o status quo.",
@@ -200,9 +133,7 @@
             "resp8Total": "8"
         }
     ]
-</script>
 
-<script>
     let questaoAtual = 0;
     let pontos = [];
     const totalQuestoes = questoes.length;
@@ -303,7 +234,7 @@
                     `<div class="summary"> 
                         <h2> Seu personagem é:</h2> 
                         <div> 
-                            <img src="fotos/neil-pic.png"> 
+                            <img src="assets/imgs/neil-pic.png"> 
                         </div> 
                         <div> 
                             <b>🎭 Neil Perry</b> 
@@ -320,7 +251,7 @@
                         `<div class="summary"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
-                                <img src="fotos/charlie-pic.png"> 
+                                <img src="assets/imgs/charlie-pic.png"> 
                             </div> 
                             <div> 
                                 <b>🎷 Charlie Dalton (Nuwanda)</b> 
@@ -337,7 +268,7 @@
                         `<div class="summary"> 
                             <h2> Seu personagem é:</h2> 
                         <div> 
-                            <img src="fotos/knox-pic.png"> 
+                            <img src="assets/imgs/knox-pic.png"> 
                         </div> 
                         <div> 
                             <b>💌 Knox Overstreet</b> 
@@ -353,7 +284,7 @@
                         `<div class="summary"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
-                                <img src="fotos/meeks-pic.png"> 
+                                <img src="assets/imgs/meeks-pic.png"> 
                             </div> 
                             <div> 
                                 <b>🧠 Steven Meeks</b> 
@@ -369,7 +300,7 @@
                         `<div class="summary"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
-                                <img src="fotos/pitts-pic.png"> 
+                                <img src="assets/imgs/pitts-pic.png"> 
                             </div> 
                             <div> 
                                 <b>📚 Pitts</b> 
@@ -386,7 +317,7 @@
                     `<div class="summary"> 
                         <h2> Seu personagem é:</h2> 
                         <div> 
-                            <img src="fotos/todd-pic.png"> 
+                            <img src="assets/imgs/todd-pic.png"> 
                         </div> 
                         <div> 
                             <b>📓 Todd Anderson</b> 
@@ -402,7 +333,7 @@
                         `<div class="summary">  
                             <h2> Seu personagem é:</h2> 
                             <div> 
-                                <img src="fotos/cameron-pic.png"> 
+                                <img src="assets/imgs/cameron-pic.png"> 
                             </div> 
                             <div> 
                                 <b>🎓 Richard Cameron</b> 
@@ -421,7 +352,7 @@
         }
 
         //Função para voltar questão
-        function prevQuestao() {
+        function questaoAnterior() {
             questaoAtual--;
             //Remove o último elemento da array;
             pontos.pop();
@@ -444,7 +375,5 @@
         //Chama as funções de acordo com o clique nos botões
         gerarQuestoes(questaoAtual);
         nextButton.addEventListener('click', proxQuestao);
-        previousButton.addEventListener('click', prevQuestao);
+        previousButton.addEventListener('click', questaoAnterior);
         resultado.addEventListener('click', reiniciarQuiz);
-
-</script>

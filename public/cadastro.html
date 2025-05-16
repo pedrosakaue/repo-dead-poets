@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/icon/logo-img.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Cadastro</title>
+    <script src="./js/sessao.js"></script>
+</head>
+
+<body class="login-body">
+    <a href="index.html">
+        <h3 class="logo2"><img src="assets/icon/logo-img.png" alt=""></h3>
+    </a>
+    <div class="login-box">
+        <h2>Bem-vindo!</h2>
+        <input type="text" placeholder="Nome" id="nome_input">
+        <input type="text" placeholder="E-mail" id="email_input">
+        <input type="password" placeholder="Senha" id="senha_input">
+        <input type="password" placeholder="Confirmação de senha" id="confirmacao_senha_input">
+        <div class="logcad-container">
+            <button class="logcad-button" onclick="cadastrar()">Cadastrar</button>
+            <button class="logcad-button"> <a href="login.html">Entrar</a></button>
+        </div>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro" style="display: none;">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        2025 © Copyrights Reserved
+    </div>
+</body>
+
+</html>
+
+<script src="js/cadastro.js"></script>

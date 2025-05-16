@@ -14,7 +14,7 @@ body {
     font-family: "Courier Prime", monospace;
     font-weight: 100;
     line-height: 1.7rem;
-    background-image: url(../fotos/background-img.jpg);
+    background-image: url(../assets/imgs/background-img.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
