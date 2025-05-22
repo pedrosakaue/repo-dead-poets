@@ -455,9 +455,48 @@ header {
     color: black;
 }
 
-.copyright {
-    font-size: 10px;
-    color: black;
-    margin: 40px;
-    margin-bottom: 0;
+footer {
+    background-color: #7c2e2e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    width: 100%;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 15px 15px 0 0;
+}
+
+footer div {
+    color: white;
+}
+
+.footer-content {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.footer-info p {
+    color: #fff;
+    font-size: 12px;
+    margin: 10px 0;
+    padding: 2px;
+}
+
+.footer-info a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.socials-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.socials-content img {
+    width: 40px;
+    height: auto;
 }
