@@ -43,7 +43,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 8vh;
+    height: 10vh;
     padding: 20px;
     z-index: 100;
     border-bottom-left-radius: 15px;
@@ -128,6 +128,14 @@ header {
 
 .central-text i {
     font-style: italic;
+    color: #f5f5dc;
+}
+
+.central-text h3 {
+    color: #f5f5dc;
+}
+
+.central-text span {
     color: #f5f5dc;
 }
 

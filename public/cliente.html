@@ -41,10 +41,7 @@
     </header>
     <div class="inicio-container" id="inicio">
         <div class="central-text">
-            "Os Poetas Mortos dedicavam-se a <i>sugar o tutano da vida</i>."
-        </div>
-        <div class="central-text2">
-            Henry David Thoreau
+            <h3>Seja muito bem-vindo, <span id="b_usuario">usuario</span>!</h3>
         </div>
     </div>
     <div class="title-display" id="quiz">
@@ -103,3 +100,6 @@
 </body>
 
 </html>
+<script>
+     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+</script>

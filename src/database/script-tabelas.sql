@@ -3,7 +3,7 @@ CREATE DATABASE db_deadpoets;
 USE db_deadpoets;
 
 CREATE TABLE usuario (
-	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50) UNIQUE,
 	senha VARCHAR(50)
@@ -13,7 +13,7 @@ CREATE TABLE quiz (
 	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
 	acertos INT,
 	fkUsuario INT,
-	FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
+	FOREIGN KEY (fkUsuario) REFERENCES usuario(id)
 );
 
 CREATE TABLE personagem (
@@ -34,5 +34,5 @@ CREATE TABLE teste (
 			REFERENCES personagem(idPersonagem),
 	CONSTRAINT fkUsuarioTeste
 		FOREIGN KEY (fkUsuario) 
-			REFERENCES usuario(idUsuario)
+			REFERENCES usuario(id)
 );
