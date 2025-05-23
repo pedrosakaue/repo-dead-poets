@@ -130,7 +130,8 @@ header {
     font-style: italic;
 }
 
-.central-text span, .central-text i {
+.central-text span,
+.central-text i {
     color: #fdf6e3;
 }
 
@@ -151,12 +152,18 @@ header {
     padding: 8px 8px;
 }
 
-.filme-container, .personagem-text, .carpediem-box, .minhahist-box, .login-box, .quiz-container, .teste-container {
+.filme-container,
+.personagem-text,
+.carpediem-box,
+.minhahist-box,
+.login-box,
+.quiz-container,
+.teste-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-     margin: 10px;
+    margin: 10px;
     padding: 25px;
     background-color: #f5f0e1;
     border: 2px solid #824f3d;
@@ -295,7 +302,7 @@ input:focus {
     margin: 0 15px;
     color: #f5f5dc;
     text-decoration: none;
-    
+
 }
 
 .logcad-button a {
@@ -303,7 +310,8 @@ input:focus {
     color: inherit;
 }
 
-.quiz-container, .teste-container {
+.quiz-container,
+.teste-container {
     margin: 10px;
     margin-bottom: 300px;
 }
@@ -420,14 +428,20 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-info{
+.footer-info {
     flex: 1;
     min-width: 200px;
 }
 
-.footer-info p, .footer-suporte p {
+.footer-info p,
+.footer-suporte p {
     margin: 8px 0;
     font-size: 13px;
+    color: #fff;
+}
+
+.footer-info em {
+    color: #fff;
 }
 
 .footer-suporte a {

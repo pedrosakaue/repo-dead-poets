@@ -63,7 +63,8 @@ label {
     font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -74,7 +75,8 @@ input, textarea {
     font-size: 1rem;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border: 2px solid #e4c07d;
 }
@@ -119,12 +121,13 @@ footer {
     flex-wrap: wrap;
 }
 
-.footer-info{
+.footer-info {
     flex: 1;
     min-width: 200px;
 }
 
-.footer-info p, .footer-suporte p {
+.footer-info p,
+.footer-suporte p {
     margin: 8px 0;
     font-size: 13px;
 }
