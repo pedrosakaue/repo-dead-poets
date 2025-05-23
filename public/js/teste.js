@@ -198,6 +198,7 @@ const questoes = [
         //Insere na array a resposta selecionada
         pontos.push(respScore);
 
+        //Usando reduce para armazenar os pontos em uma const usando a matemática da função
         const totalPontos = pontos.reduce((total, currentNum) => total + currentNum);
 
         //Acrescenta o número de questões respondidas.
