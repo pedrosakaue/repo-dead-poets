@@ -13,13 +13,23 @@ function iniciarTentativa(req, res) {
         });
 }
 
-function responder(req, res) {
-    var { fkUsuario, fkPergunta, pontuacao, fkTentativa } = req.body;
+function registrar(req, res) {
+    var fkTentativa = req.body.fkTentativa;
+    var fkUsuario = req.body.fkUsuario;
+    var fkPergunta = req.body.fkPergunta;
+    var pontuacao = req.body.pontuacao;
+     
 
-    if (fkUsuario == undefined || fkPergunta == undefined || pontuacao == undefined || fkTentativa == undefined) {
-        res.status(400).send("Campos obrigatórios faltando!");
+    if (fkTentativa == undefined) {
+        res.status(400).send("Sua fkTentativa está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("Sua fkUsuario está undefined!");
+    } else if (fkPergunta == undefined) {
+        res.status(400).send("Sua fkPergunta está undefined!");
+    } else if (pontuacao == undefined) {
+        res.status(400).send("Sua pontuação está undefined!");
     } else {
-        quizModel.salvarResposta(fkUsuario, fkPergunta, pontuacao, fkTentativa)
+        quizModel.registrar(fkTentativa, fkUsuario, fkPergunta, pontuacao)
             .then((resultado) => {
                 res.json(resultado);
             })
@@ -30,22 +40,7 @@ function responder(req, res) {
     }
 }
 
-function buscarResultado(req, res) {
-    var idUsuario = req.params.idUsuario;
-    var idTentativa = req.params.idTentativa;
-
-    quizModel.buscarResultadoTentativa(idTentativa, idUsuario)
-        .then((resultado) => {
-            res.json(resultado);
-        })
-        .catch((erro) => {
-            console.log(erro);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
-
 module.exports = {
     iniciarTentativa,
-    responder,
-    buscarResultado
+    registrar
 };

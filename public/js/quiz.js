@@ -4,6 +4,7 @@ let idTentativa = null;
 window.addEventListener('load', () => {
     idUsuario = sessionStorage.ID_USUARIO;
     nomeUsuario = sessionStorage.NOME_USUARIO;
+    idTentativa = sessionStorage.ID_TENTATIVA;
     if (!idUsuario) {
         alert('Você precisa estar logado para fazer o quiz.');
         window.location.href = 'login.html';
@@ -140,7 +141,7 @@ function iniciarQuiz() {
         .then(res => res.json())
         .then(data => {
             idTentativa = data.idTentativa;
-            console.log('Tentativa criada:', idTentativa);
+            sessionStorage.setItem('ID_TENTATIVA', idTentativa);
 
             document.getElementById('pontuacao').style.display = "flex"
             document.getElementById('jogo').style.display = "flex"
@@ -155,7 +156,6 @@ function iniciarQuiz() {
             // btnConcluir.disabled = true
             btnTentarNovamente.disabled = true
         })
-        .catch(err => console.error('Erro iniciando tentativa:', err));
 }
 
 function preencherHTMLcomQuestaoAtual(index) {
@@ -230,11 +230,19 @@ function tentarNovamente() {
 function checarResposta() {
     const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
     const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
-    const questao = listaDeQuestoes[numeroDaQuestaoAtual];
 
     const options = document.getElementsByName("option"); // recupera alternativas no html
 
     let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+    let selecionada = null;
+    options.forEach(opt => {
+        if (opt.checked) {
+            selecionada = opt.value;
+        }
+    });
+
+    const pontuacao = (selecionada === respostaQuestaoAtual) ? 1 : 0;
 
     options.forEach((option) => {
         if (option.value === respostaQuestaoAtual) {
@@ -264,13 +272,15 @@ function checarResposta() {
     })
 
     const respostaBody = {
-        fkUsuario: parseInt(idUsuario, 10),
-        fkPergunta: questao.idPergunta,
-        pontuacao: (selecionada === correta ? 1 : 0),
-        fkTentativa: parseInt(idTentativa, 10)
+        fkTentativa: `${idTentativa}`,
+        fkUsuario: `${idUsuario}`,
+        fkPergunta: questaoAtual.idPergunta,
+        pontuacao: pontuacao
     };
 
-    fetch('http://localhost:3333/quiz/responder', {
+    console.log("Enviando ao servidor:", respostaBody);
+
+    fetch('http://localhost:3333/quiz/registrar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(respostaBody)
@@ -280,7 +290,6 @@ function checarResposta() {
         })
         .catch(err => console.error('Falha ao conectar:', err));
 
-    numeroDaQuestaoAtual++;
 }
 
 function limparCoresBackgroundOpcoes() {

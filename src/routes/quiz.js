@@ -8,12 +8,8 @@ router.post("/iniciar/:idUsuario", function (req, res) {
     quizController.iniciarTentativa(req, res);
 });
 
-router.post("/responder", function (req, res) {
-    quizController.responder(req, res);
-});
-
-router.get("/resultado/:idUsuario/:idTentativa", function (req, res) {
-    quizController.buscarResultado(req, res);
+router.post("/registrar", function (req, res) {
+    quizController.registrar(req, res);
 });
 
 router.post("/autenticar", function (req, res) {
