@@ -5,10 +5,6 @@ window.addEventListener('load', () => {
     idUsuario = sessionStorage.ID_USUARIO;
     nomeUsuario = sessionStorage.NOME_USUARIO;
     idTentativa = sessionStorage.ID_TENTATIVA;
-    if (!idUsuario) {
-        alert('Você precisa estar logado para fazer o quiz.');
-        window.location.href = 'login.html';
-    }
 });
 
 const listaDeQuestoes = [
