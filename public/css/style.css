@@ -267,7 +267,8 @@ input:focus {
     border: 2px solid #e4c07d;
 }
 
-.login-box button {
+.login-box button,
+.logcad-container button {
     width: 100%;
     padding: 10px;
     background-color: #5c1a1b;
@@ -293,21 +294,22 @@ input:focus {
     padding: 15px;
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
 
-.logcad-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 15px;
-    color: #f5f5dc;
-    text-decoration: none;
-
-}
-
-.logcad-button a {
+.logcad-container a {
     text-decoration: none;
     color: inherit;
+}
+
+#mensagem_erro {
+    font-family: 'Courier Prime', monospace;
+    color: #5c1a1b;
+}
+
+#voltar-cadastro {
+    font-size: large;
+    padding: 10px;
 }
 
 .quiz-container,
