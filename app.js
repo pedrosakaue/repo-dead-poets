@@ -17,6 +17,7 @@ var app = express();
 
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
+var quizRouter = require("./src/routes/quiz");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,16 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
+app.use("/quiz", quizRouter);
+
+app.post('/quiz/salvarPontuacao', (req, res) => {
+    const { usuario, pontuacao, certas, erradas, data } = req.body;
+
+    console.log('Recebido:', req.body);
+    
+    res.status(200).send({ message: 'Pontuação salva com sucesso!' });
+});
+
 
 app.listen(PORTA_APP, function () {
     console.log(`
