@@ -13,12 +13,12 @@ function iniciarTentativa(req, res) {
         });
 }
 
+
 function registrar(req, res) {
     var fkTentativa = req.body.fkTentativa;
     var fkUsuario = req.body.fkUsuario;
     var fkPergunta = req.body.fkPergunta;
     var pontuacao = req.body.pontuacao;
-
 
     if (fkTentativa == undefined) {
         res.status(400).send("Sua fkTentativa está undefined!");
@@ -40,6 +40,7 @@ function registrar(req, res) {
     }
 }
 
+
 function buscarResultado(req, res) {
     var idUsuario = req.params.idUsuario;
 
@@ -53,6 +54,7 @@ function buscarResultado(req, res) {
         });
 }
 
+
 function dadosGrafico(req, res) {
     const idUsuario = req.params.idUsuario;
     quizModel.dadosGrafico(idUsuario)
@@ -63,6 +65,7 @@ function dadosGrafico(req, res) {
         });
 }
 
+
 function dadosTempoReal(req, res) {
     const idUsuario = req.params.idUsuario;
     quizModel.dadosTempoReal(idUsuario)
@@ -72,6 +75,7 @@ function dadosTempoReal(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+
 
 function kpis(req, res) {
     const idUsuario = req.params.idUsuario;
@@ -88,6 +92,7 @@ function kpis(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+
 
 module.exports = {
     iniciarTentativa,
