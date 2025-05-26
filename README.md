@@ -8,8 +8,8 @@
 
 # 📖 D.P.S 
 
-**D.P.S** é um projeto com o intuito de compartilhar a paixão que tenho pelo filme A Sociedade dos Poetas Mortos (Dead Poets Society), mostrando <br/> 
-os ensinamentos, desafios e sentimentos que tenho a respeito dele. Este site tem como principal objetivo compartilhar a essência de Dead Poets Society <br/>
+**D.P.S** é um projeto com o intuito de compartilhar a paixão que tenho pelo filme A Sociedade dos Poetas Mortos (Dead Poets Society), mostrando
+os ensinamentos, desafios e sentimentos que tenho a respeito dele. Este site tem como principal objetivo compartilhar a essência de Dead Poets Society
 aos usuários, permitindo que cada um tenha um sentimento único ao se relacionar com o filme. Mais do que mostrar o filme, quero proporcionar uma experiência que informe, conecte e inspire.  
 
 🛠 Feito com
