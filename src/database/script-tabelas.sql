@@ -17,7 +17,7 @@ CREATE TABLE pergunta (
 CREATE TABLE personagem (
 	idPersonagem INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(45),
-	descricao VARCHAR(120)
+	descricao VARCHAR(300)
 );
 
 CREATE TABLE tentativaQuiz (
@@ -87,3 +87,21 @@ INSERT INTO pergunta (pergunta) VALUES
 ("Quem entrega a folha com assinaturas para expulsar Keating?"),
 ("O que representa a cena dos alunos subindo nas mesas?"),
 ("Qual desses temas é central no filme?");
+
+INSERT INTO personagem (nome, descricao) VALUES
+("Sr. Keating", "Professor de literatura não convencional, inspira seus alunos a pensarem por si mesmos e a viverem intensamente. Com seu lema 
+“Carpe Diem”, encoraja a liberdade de expressão e o amor pela poesia, sendo a força transformadora na vida dos garotos."),
+("Neil Perry", "Estudante carismático e apaixonado por artes, especialmente teatro. Vive sob intensa pressão do pai autoritário, o que o leva 
+a um trágico conflito entre seguir seus sonhos e obedecer às expectativas familiares."),
+("Charlie Dalton", "Irreverente e provocador, Charlie adota o nome “Nuwanda” como símbolo de sua rebeldia. Sempre desafia a autoridade e leva 
+os ideais de liberdade ao extremo, sendo uma figura ousada e cômica ao mesmo tempo."),
+("Knox Overstreet", "Romântico incorrigível, Knox se apaixona por uma garota e luta para conquistar seu coração. Sua jornada reflete o desejo 
+de viver intensamente, mesmo diante do medo da rejeição e das convenções sociais."),
+("Steven Meeks", "Inteligente e gentil, Meeks é entusiasta de ciência e poesia. É leal ao grupo e participa ativamente das reuniões do Dead 
+Poets Society, sempre buscando equilíbrio entre rebeldia e responsabilidade."),
+("Gerard Pitts", "Amigo próximo de Meeks, é reservado e calado, mas participa fielmente das reuniões do grupo. Representa os alunos que encontram 
+força na união e na amizade, mesmo sem estar no centro das atenções."),
+("Todd Anderson", "Tímido e inseguro, vive à sombra do irmão mais velho. Ao longo do filme, se transforma profundamente graças ao incentivo de 
+Keating e da amizade com Neil, encontrando sua própria voz e coragem."),
+("Richard Cameron", "Conservador e obediente, Cameron representa o conformismo e o medo de romper com as regras. No momento de crise, entrega 
+o grupo para se proteger, tornando-se símbolo da traição à liberdade proposta por Keating.");

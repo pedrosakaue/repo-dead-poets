@@ -12,13 +12,7 @@ router.post("/registrar", function (req, res) {
     quizController.registrar(req, res);
 });
 
-router.get("/resultado/:idUsuario", function (req, res) {
-    quizController.buscarResultado(req, res);
-});
-
 router.get('/dados-grafico/:idUsuario', quizController.dadosGrafico);
-
-router.get('/dados-tempo-real/:idUsuario', quizController.dadosTempoReal);
 
 router.get('/kpis/:idUsuario', quizController.kpis);
 

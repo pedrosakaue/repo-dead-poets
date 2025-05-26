@@ -41,34 +41,9 @@ function registrar(req, res) {
 }
 
 
-function buscarResultado(req, res) {
-    var idUsuario = req.params.idUsuario;
-
-    quizModel.buscarResultadoTentativa(idUsuario)
-        .then((resultado) => {
-            res.json(resultado);
-        })
-        .catch((erro) => {
-            console.log(erro);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
-
-
 function dadosGrafico(req, res) {
     const idUsuario = req.params.idUsuario;
     quizModel.dadosGrafico(idUsuario)
-        .then(resultado => res.json(resultado))
-        .catch(erro => {
-            console.log(erro);
-            res.status(500).json(erro.sqlMessage);
-        });
-}
-
-
-function dadosTempoReal(req, res) {
-    const idUsuario = req.params.idUsuario;
-    quizModel.dadosTempoReal(idUsuario)
         .then(resultado => res.json(resultado))
         .catch(erro => {
             console.log(erro);
@@ -97,8 +72,6 @@ function kpis(req, res) {
 module.exports = {
     iniciarTentativa,
     registrar,
-    buscarResultado,
     dadosGrafico,
-    dadosTempoReal,
     kpis
 };
