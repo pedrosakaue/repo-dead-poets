@@ -213,13 +213,13 @@ const questoes = [
             container.style.display = 'none';
             if (totalPontos >= 7 && totalPontos <= 12) {
                 resultado.innerHTML =
-                    `<div class="summary"> 
+                    `<div class="resumo"> 
                         <h2> Seu personagem é:</h2> 
                         <div> 
                             <img src="fotos/keating-pic.png"> 
                         </div> 
                         <div> 
-                            <b>🧑‍🏫 Sr. Keating!</b> 
+                            <b>🧑‍🏫 Sr. Keating</b> 
                         </div> 
                         <div> 
                             Professor de literatura não convencional, inspira seus alunos a pensarem por si  
@@ -230,7 +230,7 @@ const questoes = [
                     <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 13 && totalPontos <= 18) {
                     resultado.innerHTML =
-                    `<div class="summary"> 
+                    `<div class="resumo"> 
                         <h2> Seu personagem é:</h2> 
                         <div> 
                             <img src="assets/imgs/neil-pic.png"> 
@@ -247,7 +247,7 @@ const questoes = [
                     <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 19 && totalPontos <= 24) {
                     resultado.innerHTML =
-                        `<div class="summary"> 
+                        `<div class="resumo"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
                                 <img src="assets/imgs/charlie-pic.png"> 
@@ -264,7 +264,7 @@ const questoes = [
                         <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 25 && totalPontos <= 30) {
                     resultado.innerHTML =
-                        `<div class="summary"> 
+                        `<div class="resumo"> 
                             <h2> Seu personagem é:</h2> 
                         <div> 
                             <img src="assets/imgs/knox-pic.png"> 
@@ -280,7 +280,7 @@ const questoes = [
                     <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 31 && totalPontos <= 36) {
                     resultado.innerHTML =
-                        `<div class="summary"> 
+                        `<div class="resumo"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
                                 <img src="assets/imgs/meeks-pic.png"> 
@@ -296,7 +296,7 @@ const questoes = [
                         <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 37 && totalPontos <= 42) {
                     resultado.innerHTML =
-                        `<div class="summary"> 
+                        `<div class="resumo"> 
                             <h2> Seu personagem é:</h2> 
                             <div> 
                                 <img src="assets/imgs/pitts-pic.png"> 
@@ -313,7 +313,7 @@ const questoes = [
                         <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 43 && totalPontos <= 48) {
                     resultado.innerHTML =
-                    `<div class="summary"> 
+                    `<div class="resumo"> 
                         <h2> Seu personagem é:</h2> 
                         <div> 
                             <img src="assets/imgs/todd-pic.png"> 
@@ -329,7 +329,7 @@ const questoes = [
                     <button class="restart">Tentar Novamente</button>`
                 } else if (totalPontos >= 49 && totalPontos <= 56) {
                     resultado.innerHTML =
-                        `<div class="summary">  
+                        `<div class="resumo">  
                             <h2> Seu personagem é:</h2> 
                             <div> 
                                 <img src="assets/imgs/cameron-pic.png"> 
