@@ -104,11 +104,11 @@ button {
     transition: all 0.2s;
 }
 
-button.previous {
+button.voltar {
     background: #5c1a1b;
 }
 
-button.next {
+button.proximo {
     background: #3c91e6;
 }
 

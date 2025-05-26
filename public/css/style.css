@@ -409,14 +409,14 @@ input:focus {
 }
 
 footer {
-    background-color: #1f2a38;
+    background-image: linear-gradient(to bottom, #5c1a1b, #47161a, #311217, #1e0c10, #000000);
     color: #fff;
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
     width: 100%;
     box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
-    border-radius: 15px 15px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
 .footer-content {
