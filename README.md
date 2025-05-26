@@ -9,7 +9,7 @@
 # 📖 D.P.S 
 
 **D.P.S** é um projeto com o intuito de compartilhar a paixão que tenho pelo filme A Sociedade dos Poetas Mortos (Dead Poets Society), mostrando
-os ensinamentos, desafios e sentimentos que tenho a respeito dele. Este site tem como principal objetivo compartilhar a essência de Dead Poets Society
+os ensinamentos, desafios e sentimentos que tive com ele. Este site tem como principal objetivo compartilhar a essência de Dead Poets Society
 aos usuários, permitindo que cada um tenha um sentimento único ao se relacionar com o filme. Mais do que mostrar o filme, quero proporcionar uma experiência que informe, conecte e inspire.  
 
 🛠 Feito com
@@ -32,4 +32,4 @@ aos usuários, permitindo que cada um tenha um sentimento único ao se relaciona
 
 ## 🤝 Contribuição
 
-Apoiado pelos professores da Faculdade São Paulo Tech School, em especial a professora de Pesquisa e Inovação: Fernanda Caramico
+Apoiado pelos professores e monitores da Faculdade São Paulo Tech School, em especial a professora de Pesquisa e Inovação: Fernanda Caramico
