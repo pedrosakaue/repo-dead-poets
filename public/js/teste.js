@@ -154,6 +154,8 @@ const questoes = [
     const resultado = document.querySelector('.resultado');
 
     function gerarQuestoes(index) {
+        resultado.style.display = 'none';
+
         //Carrega os valores das questões de acordo com o index e respostas selecionadas
         const questao = questoes[index];
         const option1Valor = questoes[index].resp1Valor;
@@ -211,6 +213,7 @@ const questoes = [
         //Quando finalizado, aparecer somente o resultado na tela
         if (questaoAtual == totalQuestoes) {
             container.style.display = 'none';
+            resultado.style.display = 'flex';
             if (totalPontos >= 7 && totalPontos <= 12) {
                 resultado.innerHTML =
                     `<div class="resumo"> 
