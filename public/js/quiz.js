@@ -128,7 +128,7 @@ function onloadEsconder() {
 function iniciarQuiz() {
     if (!idUsuario) {
         alert('Faça login antes de iniciar o quiz.');
-        return;
+        window.location.href = 'login.html';
     }
 
     fetch(`http://localhost:3333/quiz/iniciar/${idUsuario}`, {

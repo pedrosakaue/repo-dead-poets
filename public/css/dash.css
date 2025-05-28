@@ -7,7 +7,7 @@ body, h1, h2, h3, p, ul {
 
 body {
     display: flex;
-    background-color: #f5f5dc;
+    background-image: linear-gradient(to right top, #f5f5dc, #ccbd9d, #a78666, #83503a, #5c1a1b);
     color: #000;
     height: 100vh;
 }
@@ -69,8 +69,6 @@ header h1 {
 .kpi {
     flex: 1;
     background: #f5f5dc;
-    border: 0px;
-    border-color: #5c1a1b;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
@@ -87,8 +85,8 @@ header h1 {
 
 .grafico-container {
     margin-top: 30px;
-    background: #5c1a1b;
+    background: #f5f5dc;
     padding: 20px;
     border-radius: 10px;
-    height: 70vh;
+    height: 60vh;
 }
