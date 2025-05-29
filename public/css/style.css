@@ -244,6 +244,7 @@ header {
 .login-box {
     width: 300px;
     font-family: "Cedarville Cursive", cursive;
+    margin-bottom: 40px;
 }
 
 .login-box h2 {
@@ -305,6 +306,11 @@ input:focus {
 #mensagem_erro {
     font-family: 'Courier Prime', monospace;
     color: #5c1a1b;
+}
+
+.loading-div img {
+    width: 50px;
+    height: auto;
 }
 
 #voltar-cadastro {
