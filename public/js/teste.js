@@ -402,25 +402,24 @@ function proxQuestao() {
             .then(data => {
                 idTentativa = data.idTentativa;
                 sessionStorage.setItem('ID_TENTATIVA', idTentativa);
+                const respostaBody = {
+                    fkTentativa: `${idTentativa}`,
+                    fkUsuario: `${idUsuario}`,
+                    fkPersonagem: `${fkPersonagem}`
+                };
+
+                console.log("Enviando ao servidor:", respostaBody);
+
+                fetch('http://localhost:3333/teste/registrar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(respostaBody)
+                })
             })
-
-        const respostaBody = {
-            fkTentativa: `${idTentativa}`,
-            fkUsuario: `${idUsuario}`,
-            fkPersonagem: `${fkPersonagem}`
-        };
-
-        console.log("Enviando ao servidor:", respostaBody);
-
-        fetch('http://localhost:3333/teste/registrar', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(respostaBody)
-        })
-            .then(res => {
-                if (!res.ok) console.error('Erro ao salvar resposta');
-            })
-            .catch(err => console.error('Falha ao conectar:', err));
+                .then(res => {
+                    if (!res.ok) console.error('Erro ao salvar resposta');
+                })
+                .catch(err => console.error('Falha ao conectar:', err));
 
         return;
     }
