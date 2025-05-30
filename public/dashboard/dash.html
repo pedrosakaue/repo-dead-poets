@@ -31,7 +31,7 @@
 
             <section class="indicadores">
                 <div class="kpi">
-                    <h3>Total de Tentativas</h3>
+                    <h3>Total de Tentativas no Quiz</h3>
                     <p id="kpi1"></p>
                 </div>
                 <div class="kpi">
@@ -39,11 +39,11 @@
                     <p id="kpi2"></p>
                 </div>
                 <div class="kpi">
-                    <h3>KPI 3</h3>
+                    <h3>Último personagem</h3>
                     <p id="kpi3">XXX</p>
                 </div>
                 <div class="kpi">
-                    <h3>KPI 4</h3>
+                    <h3>Total de Tentativas no Teste</h3>
                     <p id="kpi4">XXX</p>
                 </div>
             </section>
@@ -65,7 +65,6 @@
 </html>
 <script>
     const idUsuario = Number(sessionStorage.getItem('ID_USUARIO'));
-    let proximaAtualizacao;
 
     if (!idUsuario) {
         alert('Faça login para ver seus dados');
@@ -74,6 +73,8 @@
 
     obterKPIs(idUsuario);
     obterDadosGrafico(idUsuario);
+    obterKPIsTeste(idUsuario);
+    obterDadosGraficoTeste(idUsuario);
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -88,10 +89,6 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idUsuario) {
         console.log("obterDadosGrafico foi invocado com idUsuario =", idUsuario);
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
 
         fetch(`/quiz/dados-grafico/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -111,21 +108,29 @@
             });
     }
 
+    function obterDadosGraficoTeste(idUsuario) {
+        fetch(`/teste/dados-grafico/${idUsuario}`, { cache: 'no-store' })
+            .then(response => response.ok ? response.json() : Promise.reject(response.statusText))
+            .then(resposta => {
+                plotarGraficoTeste(resposta);
+            })
+            .catch(err => console.error('Erro teste:', err));
+    }
+
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, resposta2, idUsuario) {
-        const ctx1 = document.getElementById(`myChartCanvas1`);
-        const ctx2 = document.getElementById(`myChartCanvas2`);
+    function plotarGrafico(resposta, idUsuario) {
+        const ctx = document.getElementById(`myChartCanvas1`);
 
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels1 = [];
+        let labels = [];
 
         // Criando estrutura para plotar gráfico - dados
-        let dados1 = {
-            labels: labels1,
+        let dados = {
+            labels: labels,
             datasets: [{
                 label: 'Quantidade de acertos',
                 data: [],
@@ -140,17 +145,21 @@
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels1.push(`Tentativa ${i + 1}`);
-            dados1.datasets[0].data.push(registro.acertos);
+        const plotar10 = resposta.slice(-10)
+
+        for (i = 0; i < plotar10.length; i++) {
+            var registro = plotar10[i];
+            labels.push(`Tentativa ${i + 1}`);
+            dados.datasets[0].data.push(registro.acertos);
         }
 
         // Criando estrutura para plotar gráfico - config
-        const config1 = {
+        const config = {
             type: 'line',
-            data: dados1,
+            data: dados,
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -161,10 +170,35 @@
         };
 
         // Adicionando gráfico criado em div na tela
-        let myChart1 = new Chart(
-            ctx1,
-            config1
+        let myChart = new Chart(
+            ctx,
+            config
         );
+    }
+
+
+    function plotarGraficoTeste(resposta) {
+        const ctx = document.getElementById('myChartCanvas2');
+        const labels = resposta.map(r => r.personagem);
+        const data = resposta.map(r => r.ocorrencias);
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: { labels, datasets: [{ data }]},
+            options: {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: ctxp => {
+                                const total = data.reduce((total, valor) => total + valor, 0);
+                                const pct = (ctxp.parsed / total * 100).toFixed(1);
+                                return `${ctxp.label}: ${pct}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
     }
 
     function obterKPIs(idUsuario) {
@@ -174,8 +208,20 @@
                 return res.json();
             })
             .then(kpis => {
-                document.getElementById('kpi1').innerText = kpis.totalTentativas;
-                document.getElementById('kpi2').innerText = `${kpis.mediaAcertos}%`;
+                document.getElementById('kpi1').innerHTML = kpis.totalTentativas;
+                document.getElementById('kpi2').innerHTML = `${kpis.mediaAcertos}%`;
+            })
+            .catch(err => {
+                console.error("Erro ao obter KPIs:", err);
+            });
+    }
+
+    function obterKPIsTeste(idUsuario) {
+        fetch(`/teste/kpis/${idUsuario}`)
+            .then(r => r.json())
+            .then(kpis => {
+                document.getElementById('kpi3').innerHTML = kpis.personagem;
+                document.getElementById('kpi4').innerHTML = kpis.totalTentativas;
             })
             .catch(err => {
                 console.error("Erro ao obter KPIs:", err);

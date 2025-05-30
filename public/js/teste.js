@@ -358,7 +358,7 @@ function proxQuestao() {
                             </div> 
                         </div> 
                         <button class="restart">Tentar Novamente</button>`
-        } else if (totalPontos >= 43 && totalPontos <= 48) {
+        } else if (totalPontos >= 43 && totalPontos <= 49) {
             fkPersonagem = 7;
             resultado.innerHTML =
                 `<div class="resumo"> 
@@ -375,7 +375,7 @@ function proxQuestao() {
                         </div> 
                     </div> 
                     <button class="restart">Tentar Novamente</button>`
-        } else if (totalPontos >= 49 && totalPontos <= 56) {
+        } else if (totalPontos >= 50 && totalPontos <= 56) {
             fkPersonagem = 8;
             resultado.innerHTML =
                 `<div class="resumo">  

@@ -27,16 +27,42 @@ function registrar(fkTentativa, fkUsuario, fkPersonagem) {
 
 function dadosGrafico(idUsuario) {
     var instrucao = `
-        SELECT t.idTentativa AS tentativa,
-            p.nome AS personagem
-            FROM tentativaTeste t JOIN resultadoTeste r
-                ON t.idTentativa = r.fkTentativa
-            JOIN personagem p 
-                ON r.fkPersonagem = p.idPersonagem
-            WHERE t.fkUsuario = ${idUsuario}
-            GROUP BY t.idTentativa
-            ORDER BY t.idTentativa DESC;
-    `;
+    SELECT r.fkPersonagem AS idPersonagem,
+      p.nome AS personagem,
+      COUNT(*) AS ocorrencias
+    FROM resultadoTeste r JOIN tentativaTeste t 
+      ON r.fkTentativa = t.idTentativa
+    JOIN personagem p 
+      ON r.fkPersonagem = p.idPersonagem
+    WHERE t.fkUsuario = ${idUsuario}
+    GROUP BY r.fkPersonagem;
+  `;
+    return database.executar(instrucao);
+}
+
+
+function ultimoPersonagem(idUsuario) {
+  var instrucao = `
+    SELECT r.fkPersonagem AS idPersonagem,
+      p.nome AS personagem
+    FROM resultadoTeste r JOIN tentativaTeste t 
+      ON r.fkTentativa = t.idTentativa
+    JOIN personagem p 
+      ON r.fkPersonagem = p.idPersonagem
+    WHERE t.fkUsuario = ${idUsuario}
+    ORDER BY t.idTentativa DESC
+    LIMIT 1;
+  `;
+  return database.executar(instrucao);
+}
+
+
+function totalTentativas(idUsuario) {
+    var instrucao = `
+    SELECT COUNT(*) AS total
+    FROM tentativaTeste
+    WHERE fkUsuario = ${idUsuario};
+  `;
     return database.executar(instrucao);
 }
 
@@ -44,5 +70,7 @@ function dadosGrafico(idUsuario) {
 module.exports = {
     iniciarTentativaTeste,
     registrar,
-    dadosGrafico
+    dadosGrafico,
+    ultimoPersonagem,
+    totalTentativas
 };

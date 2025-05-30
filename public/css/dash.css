@@ -1,4 +1,9 @@
-body, h1, h2, h3, p, ul {
+body,
+h1,
+h2,
+h3,
+p,
+ul {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -68,10 +73,13 @@ header h1 {
 
 .kpi {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #f5f5dc;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .kpi h3 {
@@ -93,4 +101,27 @@ header h1 {
     padding: 20px;
     border-radius: 10px;
     height: 60vh;
+}
+
+.grafico1,
+.grafico2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grafico1 canvas,
+.grafico2 canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.grafico1 canvas {
+    max-width: 550px;
+    max-height: 500px;
+}
+
+.grafico2 canvas {
+    max-width: 400px;
+    max-height: 500px;
 }

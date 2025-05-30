@@ -14,6 +14,8 @@ router.post("/registrar", function (req, res) {
 
 router.get('/dados-grafico/:idUsuario', testeController.dadosGrafico);
 
+router.get('/kpis/:idUsuario', testeController.kpis);
+
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });

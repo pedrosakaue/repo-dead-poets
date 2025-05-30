@@ -49,8 +49,28 @@ function dadosGrafico(req, res) {
 }
 
 
+function kpis(req, res) {
+    const idUsuario = req.params.idUsuario;
+
+    Promise.all([
+        testeModel.totalTentativas(idUsuario),
+        testeModel.ultimoPersonagem(idUsuario)   
+    ])
+        .then(([resultadoTotalTent, resultadoUltimoPersonagem]) => {
+            const total = resultadoTotalTent[0]?.total ?? 0;
+            const ultimo = resultadoUltimoPersonagem[0]?.personagem ?? '—';
+            res.json({ totalTentativas: total, personagem: ultimo });
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json(err.sqlMessage);
+        });
+}
+
+
 module.exports = {
     iniciarTentativa,
     registrar,
-    dadosGrafico
+    dadosGrafico,
+    kpis
 };
