@@ -160,10 +160,31 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5'
+                        }
+                    }
+                },
                 scales: {
                     y: {
+                        ticks: {
+                            color: '#f5f5f5'
+                        },
+                        grid: {
+                            color: 'rgba(245, 245, 245, 0.2)'
+                        },
                         beginAtZero: true,
                         max: 10
+                    },
+                    x: {
+                        ticks: {
+                            color: '#f5f5f5'
+                        },
+                        grid: {
+                            color: 'rgba(245, 245, 245, 0.2)'
+                        }
                     }
                 }
             }
@@ -181,12 +202,32 @@
         const ctx = document.getElementById('myChartCanvas2');
         const labels = resposta.map(r => r.personagem);
         const data = resposta.map(r => r.ocorrencias);
+        const cores = [
+            '#5c1a1b',
+            '#4a382d',
+            '#070d0f',
+            '#1e0c10',
+            '#8243fd',
+            '#b16831',
+            '#807380',
+            '#000000'
+        ];
 
         new Chart(ctx, {
             type: 'doughnut',
-            data: { labels, datasets: [{ data }]},
+            data: {
+                labels, datasets: [{
+                    data,
+                    backgroundColor: cores.slice(0, labels.length)
+                }]
+            },
             options: {
                 plugins: {
+                    legend: {
+                        labels: {
+                            color: '#f5f5f5'
+                        }
+                    },
                     tooltip: {
                         callbacks: {
                             label: ctxp => {
