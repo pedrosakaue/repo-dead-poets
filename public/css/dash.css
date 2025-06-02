@@ -23,6 +23,10 @@ body {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
     width: 250px;
     background-color: transparent;
     padding: 20px;
@@ -30,8 +34,9 @@ body {
 }
 
 .sidebar img {
-    width: 70px;
+    width: 120px;
     height: auto;
+    padding: 25px;
 }
 
 .sidebar h2 {
