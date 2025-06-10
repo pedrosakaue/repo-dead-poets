@@ -440,7 +440,7 @@ footer {
 }
 
 .footer-info p,
-.footer-suporte p {
+.footer-imagem p {
     margin: 8px 0;
     font-size: 13px;
     color: #fff;
@@ -450,14 +450,14 @@ footer {
     color: #fff;
 }
 
-.footer-suporte a {
+.footer-imagem a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-.footer-suporte a:hover {
+.footer-imagem a:hover {
     color: #f0d8a4;
 }
 
