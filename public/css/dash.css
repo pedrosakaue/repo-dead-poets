@@ -43,6 +43,10 @@ img {
     margin-bottom: 20px;
 }
 
+.sidebar nav {
+    padding: 20px;
+}
+
 .sidebar nav ul {
     list-style: none;
 }

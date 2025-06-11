@@ -1,271 +1,287 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../assets/icon/logo-img.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../assets/icon/logo-img.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../css/dash.css">
+    <link rel="stylesheet" href="../css/dash.css" />
     <title>D.P.S | Dashboard</title>
     <script src="../js/sessao.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <aside class="sidebar">
-            <h2><img src="../assets/icon/user-pic.png"></h2>
-            <nav>
-                <ul>
-                    <li><b><a href="">Visão Geral</a></b></li>
-                    <li><a href="../cliente.html">Voltar para Área do cliente</a></li>
-                    <li><a href="../index.html">Sair</a></li>
-                </ul>
-            </nav>
-        </aside>
+      <aside class="sidebar">
+        <h2><img src="../assets/icon/user-pic.png" /></h2>
+        <div>
+          <h3>Olá, <span id="b_usuario">usuario</span>!
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <b><a href="">Visão Geral</a></b>
+            </li>
+            <li><a href="../cliente.html">Voltar para Área do cliente</a></li>
+            <li><a href="../index.html">Sair</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-        <main class="conteudo">
-            <header>
-                <h1>Visão Geral</h1>
-            </header>
+      <main class="conteudo">
+        <header>
+          <h1>Visão Geral</h1>
+        </header>
 
-            <section class="indicadores">
-                <div class="kpi">
-                    <h3>Total de Tentativas no Quiz</h3>
-                    <p id="kpi1"></p>
-                </div>
-                <div class="kpi">
-                    <h3>Média Total de Acertos</h3>
-                    <p id="kpi2"></p>
-                </div>
-                <div class="kpi">
-                    <h3>Último personagem</h3>
-                    <p id="kpi3">XXX</p>
-                </div>
-                <div class="kpi">
-                    <h3>Total de Tentativas no Teste</h3>
-                    <p id="kpi4">XXX</p>
-                </div>
-            </section>
+        <section class="indicadores">
+          <div class="kpi">
+            <h3>Total de Tentativas no Quiz</h3>
+            <p id="kpi1"></p>
+          </div>
+          <div class="kpi">
+            <h3>Média Total de Acertos</h3>
+            <p id="kpi2"></p>
+          </div>
+          <div class="kpi">
+            <h3>Último personagem</h3>
+            <p id="kpi3">XXX</p>
+          </div>
+          <div class="kpi">
+            <h3>Total de Tentativas no Teste</h3>
+            <p id="kpi4">XXX</p>
+          </div>
+        </section>
 
-            <section class="grafico-container">
-                <div class="grafico1">
-                    <h3>Quantidades de acertos nas últimas 10 tentativas do quiz</h3>
-                    <canvas id="myChartCanvas1"></canvas>
-                </div>
-                <div class="grafico2">
-                    <h3>Porcentagem de personagens compatíveis por total de tentativas</h3>
-                    <canvas id="myChartCanvas2"></canvas>
-                </div>
-            </section>
-        </main>
+        <section class="grafico-container">
+          <div class="grafico1">
+            <h3>Quantidades de acertos nas últimas 10 tentativas do quiz</h3>
+            <canvas id="myChartCanvas1"></canvas>
+          </div>
+          <div class="grafico2">
+            <h3>
+              Porcentagem de personagens compatíveis por total de tentativas
+            </h3>
+            <canvas id="myChartCanvas2"></canvas>
+          </div>
+        </section>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>
 <script>
-    const idUsuario = Number(sessionStorage.getItem('ID_USUARIO'));
+  const idUsuario = Number(sessionStorage.getItem("ID_USUARIO"));
 
-    if (!idUsuario) {
-        alert('Faça login para ver seus dados');
-        window.location.href = 'login.html';
-    }
+  if (!idUsuario) {
+    alert("Faça login para ver seus dados");
+    window.location.href = "login.html";
+  }
 
-    obterKPIs(idUsuario);
-    obterDadosGrafico(idUsuario);
-    obterKPIsTeste(idUsuario);
-    obterDadosGraficoTeste(idUsuario);
+  obterKPIs(idUsuario);
+  obterDadosGrafico(idUsuario);
+  obterKPIsTeste(idUsuario);
+  obterDadosGraficoTeste(idUsuario);
 
-    // O gráfico é construído com três funções:
-    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+  // O gráfico é construído com três funções:
+  // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+  // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+  // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
-    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+  // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+  // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+  // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-    //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idUsuario) {
-        console.log("obterDadosGrafico foi invocado com idUsuario =", idUsuario);
+  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+  //     Para ajustar o "select", ajuste o comando sql em src/models
+  function obterDadosGrafico(idUsuario) {
+    console.log("obterDadosGrafico foi invocado com idUsuario =", idUsuario);
 
-        fetch(`/quiz/dados-grafico/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+    fetch(`/quiz/dados-grafico/${idUsuario}`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
 
-                    plotarGrafico(resposta, idUsuario);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    }
-
-    function obterDadosGraficoTeste(idUsuario) {
-        fetch(`/teste/dados-grafico/${idUsuario}`, { cache: 'no-store' })
-            .then(response => response.ok ? response.json() : Promise.reject(response.statusText))
-            .then(resposta => {
-                plotarGraficoTeste(resposta);
-            })
-            .catch(err => console.error('Erro teste:', err));
-    }
-
-    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idUsuario) {
-        const ctx = document.getElementById(`myChartCanvas1`);
-
-        console.log('iniciando plotagem do gráfico...');
-
-        // Criando estrutura para plotar gráfico - labels
-        let labels = [];
-
-        // Criando estrutura para plotar gráfico - dados
-        let dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Quantidade de acertos',
-                data: [],
-                fill: false,
-                borderColor: '#5c1a1b',
-                tension: 0.1
-            }]
-        };
-
-        console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-        console.log(resposta)
-
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        const plotar10 = resposta.slice(-10)
-
-        for (i = 0; i < plotar10.length; i++) {
-            var registro = plotar10[i];
-            labels.push(`Tentativa ${i + 1}`);
-            dados.datasets[0].data.push(registro.acertos);
+            plotarGrafico(resposta, idUsuario);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
         }
-
-        // Criando estrutura para plotar gráfico - config
-        const config = {
-            type: 'line',
-            data: dados,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#4a372b'
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: '#4a372b'
-                        },
-                        grid: {
-                            color: '#4a372b'
-                        },
-                        beginAtZero: true,
-                        max: 10
-                    },
-                    x: {
-                        ticks: {
-                            color: '#4a372b'
-                        },
-                        grid: {
-                            color: '#4a372b'
-                        }
-                    }
-                }
-            }
-        };
-
-        // Adicionando gráfico criado em div na tela
-        let myChart = new Chart(
-            ctx,
-            config
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
+      });
+  }
+
+  function obterDadosGraficoTeste(idUsuario) {
+    fetch(`/teste/dados-grafico/${idUsuario}`, { cache: "no-store" })
+      .then((response) =>
+        response.ok ? response.json() : Promise.reject(response.statusText)
+      )
+      .then((resposta) => {
+        plotarGraficoTeste(resposta);
+      })
+      .catch((err) => console.error("Erro teste:", err));
+  }
+
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  function plotarGrafico(resposta, idUsuario) {
+    const ctx = document.getElementById(`myChartCanvas1`);
+
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Quantidade de acertos",
+          data: [],
+          fill: false,
+          borderColor: "#5c1a1b",
+          tension: 0.1,
+        },
+      ],
+    };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    const plotar10 = resposta.slice(-10);
+
+    for (i = 0; i < plotar10.length; i++) {
+      var registro = plotar10[i];
+      labels.push(`Tentativa ${i + 1}`);
+      dados.datasets[0].data.push(registro.acertos);
     }
 
-
-    function plotarGraficoTeste(resposta) {
-        const ctx = document.getElementById('myChartCanvas2');
-        const labels = resposta.map(r => r.personagem);
-        const data = resposta.map(r => r.ocorrencias);
-        const cores = [
-            '#5c1a1b',
-            '#4a382d',
-            '#070d0f',
-            '#dfd4ba',
-            '#824f3d',
-            '#b16831',
-            '#807380',
-            '#ad9472'
-        ];
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels, datasets: [{
-                    data,
-                    backgroundColor: cores.slice(0, labels.length)
-                }]
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "line",
+      data: dados,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: "#4a372b",
             },
-            options: {
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#4a372b'
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: ctxp => {
-                                const total = data.reduce((total, valor) => total + valor, 0);
-                                const pct = (ctxp.parsed / total * 100).toFixed(1);
-                                return `${ctxp.label}: ${pct}%`;
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    }
+          },
+        },
+        scales: {
+          y: {
+            ticks: {
+              color: "#4a372b",
+            },
+            grid: {
+              color: "#4a372b",
+            },
+            beginAtZero: true,
+            max: 10,
+          },
+          x: {
+            ticks: {
+              color: "#4a372b",
+            },
+            grid: {
+              color: "#4a372b",
+            },
+          },
+        },
+      },
+    };
 
-    function obterKPIs(idUsuario) {
-        fetch(`/quiz/kpis/${idUsuario}`, { cache: 'no-store' })
-            .then(res => {
-                if (!res.ok) throw new Error(res.statusText);
-                return res.json();
-            })
-            .then(kpis => {
-                document.getElementById('kpi1').innerHTML = kpis.totalTentativas;
-                document.getElementById('kpi2').innerHTML = `${kpis.mediaAcertos}%`;
-            })
-            .catch(err => {
-                console.error("Erro ao obter KPIs:", err);
-            });
-    }
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(ctx, config);
+  }
 
-    function obterKPIsTeste(idUsuario) {
-        fetch(`/teste/kpis/${idUsuario}`)
-            .then(r => r.json())
-            .then(kpis => {
-                document.getElementById('kpi3').innerHTML = kpis.personagem;
-                document.getElementById('kpi4').innerHTML = kpis.totalTentativas;
-            })
-            .catch(err => {
-                console.error("Erro ao obter KPIs:", err);
-            });
-    }
+  function plotarGraficoTeste(resposta) {
+    const ctx = document.getElementById("myChartCanvas2");
+    const labels = resposta.map((r) => r.personagem);
+    const data = resposta.map((r) => r.ocorrencias);
+    const cores = [
+      "#5c1a1b",
+      "#4a382d",
+      "#070d0f",
+      "#dfd4ba",
+      "#824f3d",
+      "#b16831",
+      "#807380",
+      "#ad9472",
+    ];
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels,
+        datasets: [
+          {
+            data,
+            backgroundColor: cores.slice(0, labels.length),
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          legend: {
+            labels: {
+              color: "#4a372b",
+            },
+          },
+          tooltip: {
+            callbacks: {
+              label: (ctxp) => {
+                const total = data.reduce((total, valor) => total + valor, 0);
+                const pct = ((ctxp.parsed / total) * 100).toFixed(1);
+                return `${ctxp.label}: ${pct}%`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  function obterKPIs(idUsuario) {
+    fetch(`/quiz/kpis/${idUsuario}`, { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error(res.statusText);
+        return res.json();
+      })
+      .then((kpis) => {
+        document.getElementById("kpi1").innerHTML = kpis.totalTentativas;
+        document.getElementById("kpi2").innerHTML = `${kpis.mediaAcertos}%`;
+      })
+      .catch((err) => {
+        console.error("Erro ao obter KPIs:", err);
+      });
+  }
+
+  function obterKPIsTeste(idUsuario) {
+    fetch(`/teste/kpis/${idUsuario}`)
+      .then((r) => r.json())
+      .then((kpis) => {
+        document.getElementById("kpi3").innerHTML = kpis.personagem;
+        document.getElementById("kpi4").innerHTML = kpis.totalTentativas;
+      })
+      .catch((err) => {
+        console.error("Erro ao obter KPIs:", err);
+      });
+  }
+</script>
+
+<script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 </script>
